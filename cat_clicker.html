@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<!--
+This is an HTML document. It contains information about how elements in the website
+are arranged. In other words, it describes the layout of a website.
+
+I can't wait to see the resumes you put together!
+
+Cameron Pittman, Udacity Course Developer
+-->
+
+<!--
+The <head> of a website generally links to important resources the page will
+need to load. You'll see a lot of <link>s to CSS files for styles and
+<scripts> for JavaScript files to build interactions.
+-->
+<head>
+  <!-- This tells the browser how to read the document. -->
+  <meta charset="utf-8">
+
+  <!-- Tells the browser what the title of this page should be. -->
+  <title>Cat Clicker</title>
+
+  <!--
+  jQuery is a common JavaScript library for reading and making changes to the
+  Document Object Model (DOM). The DOM is a tree that contains information
+  about what is actually visible on a website.
+
+  While HTML is a static document, the browser converts HTML to the
+  DOM and the DOM can change. In fact, JavaScript's power comes from
+  its ability to manipulate the DOM, which is essentially a JavaScript
+  object. When JavaScript makes something interesting happen on a
+  website, it's likely the action happened because JavaScript changed
+  the DOM. jQuery is fast and easy to use, but it doesn't do anything
+  you can't accomplish with vanilla (regular) JavaScript.
+  -->
+  <script src="js/libs/jquery.min.js"></script>
+
+  <script src="js/knockout-3.2.0.js"></script>
+
+  <!--
+  Uncomment the <script> tag below when you're ready to add an interactive
+  Google Map to your resume!
+  -->
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU0w0Zg5Ka1omGVBjNNiT5ymuMQvCdWY0"></script>-->
+
+  <!-- Knockout framework -->
+  <script src="js/knockout-3.2.0.js"></script>
+
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+
+	<ul id="cat-list" data-bind="foreach: catList">
+		<li data-bind="text: name, click: $parent.selectCat"></li>
+	</ul>
+	<div data-bind="with: currentCat">
+   	<div>
+        <h2 data-bind="text: name"></h2>
+        <div data-bind="text: levelAssign"></div>
+        <div data-bind="text: clickCount"></div>
+        <img src="" alt="cute cat" data-bind="click: $parent.incrementCounter, attr{src: imgSrc}">
+    </div>
+	<ul id="cat-nickname-list" data-bind="foreach: nicknames">
+		<li data-bind="text: $data"></li>
+	</ul>
+	</div>
+
+    <button type="button" id="admin">Admin</button>
+    <form id="admin_mode" action="something">
+      Name: <input type="text" name="name" id="adminName"><br>
+      ImgURL <input type="text" name="url" id="adminURL"><br>
+      # Clicks <input type="text" name="no-clicks" id="adminNoClicks"><br>
+      <button type="button" id="cancel">Cancel</button>
+      <button type="button" id="save">Save</button>
+    </form>
+
+  <!--
+  These scripts are written in JavaScript. You'll be breaking them down as part of
+  a quiz. Essentially, the next few lines are checking to see if you have not
+  changed each section of the resume. If you have not made any changes to a section
+  of the resume, then that part of the resume does not show up. More on this in the
+  course.
+  -->
+
+  <script type="text/javascript">
+
+var initialCats = [
+	{
+		clickCount: 0,
+		name: "Fred",
+		imgSrc: "img/Fred.jpg",
+		nicknames: ["John", "Bob", "Poopy"]
+	},
+	{
+		clickCount: 0,
+		name: "Paul",
+		imgSrc: "img/Paul.jpg",
+		nicknames: ["Mongey", "Haram", "Bint"]
+	},
+	{
+		clickCount: 0,
+		name: "Mark",
+		imgSrc: "img/Mark.jpg",
+		nicknames: ["Cool"]
+	},
+	{
+		clickCount: 0,
+		name: "Sally",
+		imgSrc: "img/Sally.jpg",
+		nicknames: ["Kitty Kat"]
+	},
+	{
+		clickCount: 0,
+		name: "Susan",
+		imgSrc: "img/Susan.jpg",
+		nicknames: ["Chocolate"]
+	}
+];
+
+var Cat = function(data) {
+	this.clickCount = ko.observable(data.clickCount);
+	this.name = ko.observable(data.name);
+	this.imgSrc = ko.observable(data.imgSrc);
+	this.nicknames = ko.observableArray(data.nicknames);
+
+   this.levelAssign = ko.computed(function() {
+		var myCount = this.clickCount();
+		if (myCount <= 2) {
+			return "newborn";
+		}
+		if (myCount <= 5) {
+			return "infant";
+		}
+		if (myCount <= 7) {
+			return "veteran";
+		}
+		return "master";
+   }, this);
+}
+
+var ViewModel = function() {
+	var self = this;
+	this.catList = ko.observableArray([]);
+	initialCats.forEach(function(catItem) {
+		self.catList.push(new Cat(catItem));
+	});
+	this.currentCat = ko.observable(this.catList()[0]);
+	this.incrementCounter = function() {
+		this.clickCount(this.clickCount() + 1);
+	};
+	this.selectCat = function() {
+		self.currentCat(this);
+	};
+}
+
+ko.applyBindings(new ViewModel());
+/*
+	var model = {
+        adminShowing: null,
+		currentCat: null,
+		cats: [
+				{
+					clickCount: 0,
+					name: 'Fred',
+					imgSrc: 'Fred.jpg'
+				},
+				{
+					clickCount: 0,
+					name: 'Mark',
+					imgSrc: 'Mark.jpg'
+				},
+				{
+					clickCount: 0,
+					name: 'Paul',
+					imgSrc: 'Paul.jpg'
+				},
+				{
+					clickCount: 0,
+					name: 'Sally',
+					imgSrc: 'Sally.jpg'
+				},
+				{
+					clickCount: 0,
+					name: 'Susan',
+					imgSrc: 'Susan.jpg'
+				}
+			]
+	};
+
+	var octopus = {
+		init: function () {
+			model.currentCat = model.cats[0];
+            model.adminShowing = 0;
+
+			catListView.init();
+			catView.init();
+			adminView.init();
+		},
+		getCurrentCat: function() {
+			return model.currentCat;
+		},
+		getCats: function() {
+			return model.cats;
+		},
+		setCurrentCat: function(cat) {
+			model.currentCat = cat;
+		},
+		incrementCounter: function() {
+			model.currentCat.clickCount++;
+			catView.render();
+		},
+		openAdminView: function() {
+			model.adminShowing = 1;
+			adminView.render();
+		},
+		closeAdminView: function() {
+			model.adminShowing = 0;
+			adminView.render();
+		},
+		updateCurrentCat: function() {
+			model.currentCat.name = document.getElementById('adminName').value;
+			model.currentCat.imgURL = document.getElementById('adminURL').value;
+			model.currentCat.clickCount = document.getElementById('adminNoClicks').value;
+			catView.render();
+			catListView.render();
+		}
+	};
+
+	var catView = {
+		init: function() {
+			this.catElem = document.getElementById('cat');
+			this.catNameElem = document.getElementById('cat-name');
+			this.catImageElem = document.getElementById('cat-img');
+			this.countElem = document.getElementById('cat-count');
+
+			this.catImageElem.addEventListener('click', function(e) {
+				octopus.incrementCounter();
+			});
+
+			this.render();
+		},
+
+		render: function() {
+			var currentCat = octopus.getCurrentCat();
+			this.countElem.textContent = currentCat.clickCount;
+			this.catNameElem.textContent = currentCat.name;
+			this.catImageElem.src = currentCat.imgSrc;
+		}
+	};
+
+var adminView = {
+
+    init: function() {
+		this.adminModeElem = document.getElementById('admin_mode');
+        this.adminBtnElem = document.getElementById('admin');
+        this.cancelBtnElem = document.getElementById('cancel');
+        this.saveBtnElem = document.getElementById('save');
+
+        this.adminModeElem.style.visibility='hidden';
+
+        this.adminBtnElem.addEventListener('click', function(e) {
+			if (model.adminShowing) {
+				model.adminShowing = 0;
+			} else {
+				model.adminShowing = 1;
+			}
+			adminView.render();
+        });
+		this.cancelBtnElem.addEventListener('click', function(e) {
+			octopus.closeAdminView();
+		});
+	    this.saveBtnElem.addEventListener('click', function(e) {
+			octopus.updateCurrentCat();
+			octopus.closeAdminView();
+		});
+    },
+
+    render: function() {
+		if (!model.adminShowing) {
+			this.adminModeElem.style.visibility='hidden';
+			return;
+		}
+		this.adminModeElem.style.visibility='visible';
+		var name = model.currentCat.name;
+		var imgURL = model.currentCat.imgSrc;
+		var count = model.currentCat.clickCount;
+		this.nameElem = document.getElementById('adminName');
+		this.UrlElem = document.getElementById('adminURL');
+		this.NoClicksElem = document.getElementById('adminNoClicks');
+		this.nameElem.value = name;
+		this.UrlElem.value = imgURL;
+		this.NoClicksElem.value = count;
+    }
+
+};
+
+var catListView = {
+
+    init: function() {
+        // store the DOM element for easy access later
+        this.catListElem = document.getElementById('cat-list');
+
+        // render this view (update the DOM elements with the right values)
+        this.render();
+    },
+
+    render: function() {
+        var cat, elem, i;
+        // get the cats we'll be rendering from the octopus
+        var cats = octopus.getCats();
+
+        // empty the cat list
+        this.catListElem.innerHTML = '';
+
+        // loop over the cats
+        for (i = 0; i < cats.length; i++) {
+            // this is the cat we're currently looping over
+            cat = cats[i];
+
+            // make a new cat list item and set its text
+            elem = document.createElement('li');
+            elem.textContent = cat.name;
+
+            // on click, setCurrentCat and render the catView
+            // (this uses our closure-in-a-loop trick to connect the value
+            //  of the cat variable to the click event function)
+            elem.addEventListener('click', (function(catCopy) {
+                return function() {
+                    octopus.setCurrentCat(catCopy);
+                    catView.render();
+					adminView.render();
+                };
+            })(cat));
+
+            // finally, add the element to the list
+            this.catListElem.appendChild(elem);
+        }
+    }
+};
+
+	octopus.init();
+*/
+  </script>
+</body>
+</html>

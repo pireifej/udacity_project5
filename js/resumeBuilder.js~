@@ -1,0 +1,32 @@
+$("#header").prepend(format_HTML(HTMLheaderRole, "Let's Checkout Our Neighborhood!"));
+$("#header").prepend(format_HTML(HTMLheaderName, "Neighborhood Map Project"));
+$("#footerContacts").append(format_HTML(HTMLmobile, "Let's Checkout Our Neighborhood!"));
+
+var client_ID = "I3ZEE1QKWPUD2F3ICVHWQJUVBRJP2MES3VRHORZ4EOJ0ZWAO";
+var client_secret = "0L1BPBPX2YOJK23RQEOXPEKIO2X11NBGY5W2FJGRCGUCZHWF";
+var URL = "https://api.foursquare.com/v2/venues/search?client_id=" + client_ID + "&client_secret=" + client_secret + "&v=20130815&ll=40.7,-74&query=sushi";
+
+var wikiRequestTimeout = setTimeout(function() {
+	$wikiElem.text("failed to get wikipedia resources");
+}, 8000);
+
+$.ajax({
+	url: URL,
+	dataType: "jsonp",
+    success: function(response) {
+		console.log(response);
+		clearTimeout(wikiRequestTimeout);
+    }
+});
+
+// format HTML by replacing the %data% keyword with the content you want
+function format_HTML(var_name, content) {
+    return var_name.replace("%data%", content);
+}
+
+$(document).click(function(loc) {
+    logClicks(loc.pageX, loc.pageY);
+});
+
+
+$("#mapDiv").append(googleMap);
