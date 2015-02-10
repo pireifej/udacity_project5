@@ -13,14 +13,73 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 <scripts> for JavaScript files to build interactions.
 -->
 <head>
-  <!-- This tells the browser how to read the document. -->
-  <meta charset="utf-8">
+	<!-- This tells the browser how to read the document. -->
+	<meta charset="utf-8">
 
-  <!-- Tells the browser what the title of this page should be. -->
-  <title>Neighborhood Map Project</title>
+	<!-- Tells the browser what the title of this page should be. -->
+	<title>Neighborhood Map Project</title>
 
-  <!-- Load the page styles. -->
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+	<!-- Load Bootstrap styles. -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Load the page styles. -->
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+
+	<meta name="viewport" content="width=device-width">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div id="main">
+			<div id="header" class="center-content clearfix">
+				<h1 id='name'>Neighborhood Map Project</h1>
+				<span>Let's Checkout Our Neighborhood!</span><hr/>
+			</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="mapDiv">
+			<h2>Locations of Interest</h2>
+			<div id="map"></div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-5 bordered">
+				<ul id="map-list" data-bind="foreach: locationList">
+					<li><h2 data-bind="text: name, click: $parent.selectLocation, style: { color: $parent.currentLocation().name == name ? 'yellow' : 'black' }"></h2></li>
+				</ul>
+			</div>
+			<div class="col-md-7 bordered">
+				<div data-bind="with: currentLocation">
+			        <h2 data-bind="text: name"></h2>
+			        <h2 data-bind="text: address"></h2>
+		    	    <img "img-responsive" src="" alt="No Image Available" data-bind="attr{src: imgSrc}">
+					<h2>Wikipedia Links</h2>
+					<div data-bind="foreach: wikiUrls">
+                    <li><a data-bind="text: myArticleStr, attr{href: myUrl}"></a></li>
+					</div>
+					<h2>New York Times Articles</h2>
+					<div data-bind="foreach: nytimesUrls">
+					<li><a data-bind="text: myArticleStr, attr{href: myUrl}"></a></li>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="letsConnect" class='dark-gray'>
+			<h2 class='orange center-text'>Let's Locate!</h2>
+			<ul id="footerContacts" class="flex-box">
+				<li class='flex-item'>
+					<span class='orange-text'>Neighborhood Map Project</span>
+					<span class='white-text'>Let's Checkout Our Neighborhood!</span>
+				</li>
+			</ul>
+			</div>
+		</div>
+	</div>
 
   <!--
   jQuery is a common JavaScript library for reading and making changes to the
@@ -37,54 +96,23 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   -->
   <script src="js/jquery.min.js"></script>
 
-  <!-- More on helper.js in the class -->
-  <script src="js/helper.js"></script>
+  <!-- Knockout framework -->
+  <script src="js/knockout-3.2.0.js"></script>
 
   <!--
   Uncomment the <script> tag below when you're ready to add an interactive
   Google Map to your resume!
   -->
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
+  <!-- More on helper.js in the class -->
+  <script src="js/helper.js"></script>
+
   <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU0w0Zg5Ka1omGVBjNNiT5ymuMQvCdWY0"></script>-->
-
-  <!-- Knockout framework -->
-  <script src="js/knockout-3.2.0.js"></script>
-
-  <meta name="viewport" content="width=device-width">
-</head>
-<body unresolved>
-
-  <div id="main">
-    <!--
-    Everything from here to the <script> tag below is the skeleton of your
-    website. Your code will add information to each of the sections of the
-    resume below. You can pretty easily figure out what each section will
-    display by looking at the id or at what's written between the <h2> tags.
-    -->
-
-    <div id="header" class="center-content clearfix">
-		<h1 id='name'>Neighborhood Map Project</h1>
-		<span>Let's Checkout Our Neighborhood!</span><hr/>
-    </div>
-
-    <div style='clear: both;'></div>
-    <div id="mapDiv">
-      <h2>Locations of Interest</h2>
-    </div>
-    <div id="letsConnect" class='dark-gray'>
-      <h2 class='orange center-text'>Let's Locate!</h2>
-		<ul id="footerContacts" class="flex-box">
-			<li class='flex-item'>
-				<span class='orange-text'>Neighborhood Map Project</span>
-				<span class='white-text'>Let's Checkout Our Neighborhood!</span>
-			</li>
-		</ul>
-    </div>
-  </div>
 
   <!--
   The next line tells the browser where to download the JavaScript file you'll be
-  writing. In app.js, you'll be writing code that builds the resume
+  writing. In app.js, we have the code that builds the map
   dynamically when this website, index.html, is opened.
   -->
   <script src="js/app.js"></script>
