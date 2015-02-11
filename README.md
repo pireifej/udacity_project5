@@ -17,7 +17,7 @@ A change in the current location always updates four views:
 - The location is hightlighted in the location list below.
 - The details screen is updated with that location's information.
 
-The search toolbar has autocomplete functionality on *multiple* fields. For some example, type in just "0" and you'll get all addrsses that have a street name with 0 in it. Also, you can type in "Home" and you'll get all addresses that have a label with "Home" in it (i.e., "Parents' Home" and "My Home"). You can type in "NJ" and all addresses with a state of NJ will show up.
+The search toolbar has autocomplete functionality on *multiple* fields. For some example, type in just "0" and you'll get all addresses that have a street name with 0 in it. Also, you can type in "Home" and you'll get all addresses that have a label with "Home" in it (i.e., "Parents' Home" and "My Home"). You can type in "NJ" and all addresses with a state of NJ will show up.
 
 Some personal notes:
 
