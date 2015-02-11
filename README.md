@@ -1,21 +1,21 @@
 Welcome to Neighborhood Map Project!
 
 The locations being presented here have some personal connection to me:
-    - My parents live in upstate NY.
-    - My home is in NJ.
-    - I work at AT&T Labs in NJ.
-    - I did an REU (research opportunity for students) at the University of South Florida in Tampa, FL back in the day.
-    - I did a Co-op (education/work opportunity) for Advanced Micro Devices in Austin, TX back in the day.
+- My parents live in upstate NY.
+- My home is in NJ.
+- I work at AT&T Labs in NJ.
+- I did an REU (research opportunity for students) at the University of South Florida in Tampa, FL back in the day.
+- I did a Co-op (education/work opportunity) for Advanced Micro Devices in Austin, TX back in the day.
 
 To run the web application, just visit the index.html page.
 
 There is a details section in the lower right corner of the screen. The "details" contains the name, address, picture from Google Maps, Wikipedia links and NY Times articles.
 
 A change in the current location always updates four views:
-    1.) The corresponding marker in the map is selected.
-    2.) The name & address is populated into the search toolbar.
-    3.) The location is hightlighted in the location list below.
-    4.) The details screen is updated with that location's information.
+# The corresponding marker in the map is selected.
+# The name & address is populated into the search toolbar.
+# The location is hightlighted in the location list below.
+# The details screen is updated with that location's information.
 
 The search toolbar has autocomplete functionality on *multiple* fields. For some example, type in just "0" and you'll get all addrsses that have a street name with 0 in it. Also, you can type in "Home" and you'll get all addresses that have a label with "Home" in it (i.e., "Parents' Home" and "My Home"). You can type in "NJ" and all addresses with a state of NJ will show up.
 
