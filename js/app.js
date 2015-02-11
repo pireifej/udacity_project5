@@ -1,8 +1,8 @@
 /*
 
-This file contains all of the code running in the background that makes app.js possible.
+This file contains the code that does all of the heavy lifting for the Neighborhood Map Project.
 
-Paul Ireifej
+Paul Ireifej, Udacity Student
 */
 
 /*
@@ -27,15 +27,16 @@ var size = new google.maps.Size(21, 34);
 var defaultPin = new google.maps.MarkerImage(markerURL + "FE7569", size, point1, point2);
 var selectedPin = new google.maps.MarkerImage(markerURL + "FFFF00", size, point1, point2);
 
-// Foursquare.com API
+// Foursquare.com API (not used)
 var client_ID = "I3ZEE1QKWPUD2F3ICVHWQJUVBRJP2MES3VRHORZ4EOJ0ZWAO";
 var client_secret = "0L1BPBPX2YOJK23RQEOXPEKIO2X11NBGY5W2FJGRCGUCZHWF";
-var URL = "https://api.foursquare.com/v2/venues/search?client_id=" +
+var foursquareURL = "https://api.foursquare.com/v2/venues/search?client_id=" +
 			client_ID +
 			"&client_secret=" +
 			client_secret +
 			"&v=20130815&ll=40.7,-74&query=sushi";
 
+// Location object
 var Location = function(data) {
 	var self = this;
 
@@ -54,6 +55,10 @@ var Location = function(data) {
 	// URL for Google API street view image
 	this.address = ko.computed(function() {
 		return this.street() + ' ' + this.city() + ', ' + this.state();
+	}, this);
+
+	this.selectionLabel = ko.computed(function() {
+		return "(" + this.name() + ") " + this.address();
 	}, this);
 
 	this.imgSrc = ko.computed(function() {
@@ -88,17 +93,17 @@ var Location = function(data) {
 		var nytimesURL = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + self.city() + '&api-key=393997003a2ed9f518a44b5c77316eaf:17:70996517';
 		$.getJSON(nytimesURL, function(data) {
 			var articles = data.response.docs;
-			var items = [];
 			$.each(articles, function(index) {
 				var article = articles[index];
 				self.nytimesUrls.push({myUrl:article.web_url, myArticleStr:article.headline.main});
-            })
+			});
 		}).error(function(e) {
 			return "New York Times Article Could Not Be Loaded";
 		});
 	}, this);
-}
+};
 
+// list of initial Locations - simply add a new Location() here to extend the application
 var initialLocations = [
 	new Location(
 	{
@@ -111,7 +116,7 @@ var initialLocations = [
 	{
 		name: "Parents' Home",
 		street: "3 On the Green",
-		city: "Newburgh",
+		city: "New Windsor",
 		state: "NY"
 	}),
 	new Location(
@@ -127,10 +132,18 @@ var initialLocations = [
 		street: "4202 E Fowler Ave",
 		city: "Tampa",
 		state: "FL"
+	}),
+	new Location(
+	{
+		name: "Co-op",
+		street: "7171 Southwest Pkwy",
+		city: "Austin",
+		state: "TX"
 	})
 ];
 
-var Map = function() {
+// LocationsMap object for generating the Google Map dynamically
+var LocationsMap = function() {
     this.initializeMap = function() {
 		var mapOptions = {
 			disableDefaultUI: true
@@ -146,7 +159,6 @@ var Map = function() {
 	  about a single location.
 	  */
 	  function createMapMarker(placeData) {
-
 	    // The next lines save location data from the search result object to local variables
     	var lat = placeData.geometry.location.lat();  // latitude from the place service
 	    var lon = placeData.geometry.location.lng();  // longitude from the place service
@@ -161,6 +173,7 @@ var Map = function() {
 			title: name,
 			icon: defaultPin
 	    });
+		// we want to store the list of Markers for future reference
 		allMarkers.push(marker);
 
 	    // infoWindows are the little helper windows that open when you click
@@ -172,18 +185,12 @@ var Map = function() {
 
 		// kicked off whenever a marker is selected
 		google.maps.event.addListener(marker, 'click', function() {
-		// reset the currently selected marker
-		for (var i= 0; i < allMarkers.length; i++) {
-			allMarkers[i].setIcon(defaultPin);
-		}
-		// show the selected marker as such
-		this.setIcon(selectedPin);
-		// "map" the marker to the Location via the Title propery
-		var markerTitle = this.getTitle();
-		$.each(vm.locationList(), function(index, value) {
-				if (markerTitle.indexOf(value.street()) > -1) {
-					vm.currentLocation(vm.locationList()[index]);
-				}
+			var markerTitle = this.getTitle();
+			$.each(initialLocations, function(index, value) {
+					if (markerTitle.indexOf(value.street()) > -1) {
+						vm.currentLocation(value);
+						vm.selectMarker();
+					}
 			});
 		});
 
@@ -239,32 +246,49 @@ var Map = function() {
 		// pinPoster(locations) creates pins on the map for each location in
 		// the locations array
 		pinPoster();
-	}
-}
+	};
+};
 
+// Our Octopus! :-)
 var ViewModel = function() {
 	var self = this;
+	// list of locations
 	this.locationList = ko.observableArray([]);
 	initialLocations.forEach(function(locationItem) {
             self.locationList.push(locationItem);
 	});
+	// current location - all views are updated based on this value changing
     this.currentLocation = ko.observable(this.locationList()[0]);
 	this.selectLocation = function() {
 		self.currentLocation(this);
+		self.selectMarker();
+	};
+	// highlights the selected location's marker on the map
+	// resets all other markers to default
+	this.selectMarker = function() {
+		var myLoc = self.currentLocation();
 		// reset the currently selected marker
 		for (var i= 0; i < allMarkers.length; i++) {
-			// show the selected marker as such
-			if (allMarkers[i].getTitle().indexOf(this.street()) > -1) {
+			// "map" the marker to the Location via the Title propery
+			if (allMarkers[i].getTitle().indexOf(myLoc.street()) > -1) {
+				// show the selected marker as such
 				allMarkers[i].setIcon(selectedPin);
 				continue;
 			}
+			// show all other markers with the default pin
 			allMarkers[i].setIcon(defaultPin);
 		}
+		self.setSearchText();
 	};
-}
+	// set text in search bar to selected location
+	this.setSearchText = function() {
+		var myLoc = self.currentLocation();
+		$("#search").val(myLoc.selectionLabel());
+	};
+};
 
 // Start here! initializeMap() is called when page is loaded.
-var myMap = new Map();
+var myMap = new LocationsMap();
 
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', myMap.initializeMap);
@@ -279,3 +303,25 @@ window.addEventListener('resize', function(e) {
 var vm = new ViewModel();
 
 ko.applyBindings(vm);
+
+var locationTags = [];
+$.each(initialLocations, function(index) {
+	var myLoc = initialLocations[index];
+	locationTags.push(myLoc.selectionLabel());
+});
+
+$("#search").autocomplete({
+	source: locationTags,
+	select: function(event, ui) {
+			$.each(initialLocations, function(index) {
+					var myLoc = initialLocations[index];
+					if (ui.item.value.indexOf(myLoc.address()) > -1) {
+						vm.currentLocation(myLoc);
+						vm.selectMarker();
+					}
+			});
+	}
+});
+
+// select initial search toolbar value
+$("#search").val(locationTags[0]);

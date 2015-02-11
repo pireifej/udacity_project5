@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 
 <!--
-This is an HTML document. It contains information about how elements in the website
-are arranged. In other words, it describes the layout of a website.
+This is the HTML document for the Neighborhood Map Project.
 
 Paul Ireifej, Udacity Student
 -->
@@ -25,12 +24,18 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 	<!-- Load the page styles. -->
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 
+	<!-- Only for the border around the jQuery UI autocomplete values -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+	<!-- For mobile browsing. -->
 	<meta name="viewport" content="width=device-width">
 </head>
 <body>
+	<!-- Using the container/row framework from Bootstrap CSS -->
 	<div class="container">
 		<div class="row">
 			<div id="main">
+			<!-- Header -->
 			<div id="header" class="center-content clearfix">
 				<h1 id='name'>Neighborhood Map Project</h1>
 				<span>Let's Checkout Our Neighborhood!</span><hr/>
@@ -38,6 +43,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 			</div>
 		</div>
 
+		<!-- Google Map -->
 		<div class="row">
 			<div id="mapDiv">
 			<h2>Locations of Interest</h2>
@@ -45,29 +51,41 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 			</div>
 		</div>
 
+		<!-- Search toolbar -->
+		<div class="row bordered" style="padding-bottom:30px;padding-top:30px;">
+			<label for="search" class="col-md-6">Search:</h3>
+			<input id="search">
+		</div>
+
+		<!-- List of Locations -->
 		<div class="row">
 			<div class="col-md-5 bordered">
 				<ul id="map-list" data-bind="foreach: locationList">
-					<li><h2 data-bind="text: name, click: $parent.selectLocation, style: { color: $parent.currentLocation().name == name ? 'yellow' : 'black' }"></h2></li>
+					<li>
+						<h2 class="link" data-bind="text: name, click: $parent.selectLocation, style: { color: $parent.currentLocation().name == name ? 'yellow' : 'black' }"></h2>
+					</li>
 				</ul>
-			</div>
-			<div class="col-md-7 bordered">
-				<div data-bind="with: currentLocation">
-			        <h2 data-bind="text: name"></h2>
-			        <h2 data-bind="text: address"></h2>
-		    	    <img "img-responsive" src="" alt="No Image Available" data-bind="attr{src: imgSrc}">
-					<h2>Wikipedia Links</h2>
+		</div>
+
+		<!-- Location details -->
+		<div class="col-md-7 bordered">
+			<div data-bind="with: currentLocation">
+		        <h2 data-bind="text: name"></h2>
+		        <h2 data-bind="text: address"></h2>
+	    	    <img "img-responsive" src="" alt="No Image Available" data-bind="attr{src: imgSrc}">
+				<h2>Wikipedia Links</h2>
 					<div data-bind="foreach: wikiUrls">
                     <li><a data-bind="text: myArticleStr, attr{href: myUrl}"></a></li>
-					</div>
-					<h2>New York Times Articles</h2>
+				</div>
+				<h2>New York Times Articles</h2>
 					<div data-bind="foreach: nytimesUrls">
-					<li><a data-bind="text: myArticleStr, attr{href: myUrl}"></a></li>
+						<li><a data-bind="text: myArticleStr, attr{href: myUrl}"></a></li>
 					</div>
 				</div>
 			</div>
 		</div>
 
+		<!-- Footer -->
 		<div class="row">
 			<div id="letsConnect" class='dark-gray'>
 			<h2 class='orange center-text'>Let's Locate!</h2>
@@ -81,41 +99,35 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 		</div>
 	</div>
 
-  <!--
-  jQuery is a common JavaScript library for reading and making changes to the
-  Document Object Model (DOM). The DOM is a tree that contains information
-  about what is actually visible on a website.
+	<!--
+	jQuery is a common JavaScript library for reading and making changes to the
+	Document Object Model (DOM). The DOM is a tree that contains information
+	about what is actually visible on a website.
 
-  While HTML is a static document, the browser converts HTML to the
-  DOM and the DOM can change. In fact, JavaScript's power comes from
-  its ability to manipulate the DOM, which is essentially a JavaScript
-  object. When JavaScript makes something interesting happen on a
-  website, it's likely the action happened because JavaScript changed
-  the DOM. jQuery is fast and easy to use, but it doesn't do anything
-  you can't accomplish with vanilla (regular) JavaScript.
-  -->
-  <script src="js/jquery.min.js"></script>
+	While HTML is a static document, the browser converts HTML to the
+	DOM and the DOM can change. In fact, JavaScript's power comes from
+	its ability to manipulate the DOM, which is essentially a JavaScript
+	object. When JavaScript makes something interesting happen on a
+	website, it's likely the action happened because JavaScript changed
+	the DOM. jQuery is fast and easy to use, but it doesn't do anything
+	you can't accomplish with vanilla (regular) JavaScript.
+	-->
+	<script src="js/jquery.min.js"></script>
 
-  <!-- Knockout framework -->
-  <script src="js/knockout-3.2.0.js"></script>
+	<!-- jQuery UI is used for the autocomplete search functionality. -->
+	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
-  <!--
-  Uncomment the <script> tag below when you're ready to add an interactive
-  Google Map to your resume!
-  -->
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+	<!-- Knockout framework -->
+	<script src="js/knockout-3.2.0.js"></script>
 
-  <!-- More on helper.js in the class -->
-  <script src="js/helper.js"></script>
+	<!-- Interactive Google Map! -->
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 
-  <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCU0w0Zg5Ka1omGVBjNNiT5ymuMQvCdWY0"></script>-->
-
-  <!--
-  The next line tells the browser where to download the JavaScript file you'll be
-  writing. In app.js, we have the code that builds the map
-  dynamically when this website, index.html, is opened.
-  -->
-  <script src="js/app.js"></script>
+	<!--
+	In app.js, we have the code that builds the map
+	dynamically when this website, index.html, is opened.
+	-->
+	<script src="js/app.js"></script>
 
 </body>
 </html>
