@@ -146,12 +146,12 @@ var initialLocations = [
 var LocationsMap = function() {
     this.initializeMap = function() {
 		var mapOptions = {
+			zoom: 8,
 			disableDefaultUI: true
 		};
 
-	  // This next line makes `map` a new Google Map JavaScript Object and attaches it to
-	  // <div id="map">, which is appended as part of an exercise late in the course.
-	  map = new google.maps.Map(document.querySelector('#map'), mapOptions);
+	  // This next line makes `map` a new Google Map JavaScript Object and attaches it to <div id="map-canvas">
+	  map = new google.maps.Map(document.querySelector('#map-canvas'), mapOptions);
 
 	  /*
 	  createMapMarker(placeData) reads Google Places search results to create map pins.
@@ -197,8 +197,10 @@ var LocationsMap = function() {
 		// this is where the pin actually gets added to the map.
 		// bounds.extend() takes in a map location object
 		bounds.extend(new google.maps.LatLng(lat, lon));
+
 		// fit the map to the new marker
 		map.fitBounds(bounds);
+
 		// center the map
 		map.setCenter(bounds.getCenter());
 	}
@@ -291,14 +293,9 @@ var ViewModel = function() {
 var myMap = new LocationsMap();
 
 // Calls the initializeMap() function when the page loads
-window.addEventListener('load', myMap.initializeMap);
+google.maps.event.addDomListener(window, 'load', myMap.initializeMap);
 
-// Vanilla JS way to listen for resizing of the window
-// and adjust map bounds
-window.addEventListener('resize', function(e) {
-	// Make sure the map bounds get updated on page resize
-	map.fitBounds(mapBounds);
-});
+var map;
 
 var vm = new ViewModel();
 
