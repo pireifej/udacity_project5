@@ -76,9 +76,10 @@ ul {
 }
 
 .location-detail {
+    width: 500px;
 	height: 500px;
 	position: fixed;
-	margin-left: 800px;
+	margin-left: 1080px;
 	top: 150px;
 	padding: 30px 30px 30px 30px;
 	overflow-y: scroll;
@@ -87,7 +88,7 @@ ul {
 .search-tool {
 	position: fixed;
 	margin-left: 20px;
-	top: 20px;
+	top: 5px;
 	padding: 30px 30px 30px 30px;
 }
 

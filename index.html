@@ -52,12 +52,12 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 		<div data-bind="with: currentLocation">
 	        <h2 data-bind="text: name"></h2>
 	        <h2 data-bind="text: address"></h2>
-    	    <img "img-responsive" src="" alt="No Image Available" data-bind="attr{src: imgSrc}">
-			<h2>Wikipedia Links</h2>
+    	    <img id="googleImg" src="" alt="Google API Image" data-bind="attr{src: imgSrc}">
+			<h2 id="wiki">Wikipedia Links</h2>
 			<div data-bind="foreach: wikiUrls">
 				<li><a data-bind="text: myArticleStr, attr{href: myUrl}"></a></li>
 			</div>
-			<h2>New York Times Articles</h2>
+			<h2 id="nytimes">New York Times Articles</h2>
 			<div data-bind="foreach: nytimesUrls">
 				<li><a data-bind="text: myArticleStr, attr{href: myUrl}"></a></li>
 			</div>
