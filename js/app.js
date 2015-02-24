@@ -270,6 +270,7 @@ var LocationsMap = function() {
 /** Our Octopus! :-) */
 var ViewModel = function() {
 	var self = this;
+
 	/** list of locations */
 	this.locationList = ko.observableArray([]);
 	initialLocations.forEach(function(locationItem) {
@@ -281,6 +282,13 @@ var ViewModel = function() {
 		self.currentLocation(this);
 		self.selectMarker();
 	};
+
+	/**
+		* current filtered location - 'none' means that nothing is being filtered
+		* and all locations should be displayed
+	*/
+	this.filteredLocation = ko.observable("none");
+
 	/**
 		* highlights the selected location's marker on the map
 		* resets all other markers to default
@@ -324,6 +332,7 @@ $.each(initialLocations, function(index) {
 /** reset the marker visiblity if no filter is entered */
 $("#search").on("keypress", function(key) {
 	var text = $("#search").val();
+	vm.filteredLocation("none");
 	/** charCode 13 is the 'enter' key */
 	if (key.charCode == 13 && text.length == 0) {
 		for (var i= 0; i < allMarkers.length; i++) {
@@ -340,6 +349,7 @@ $("#search").autocomplete({
 					var myMarker = {};
 					if (ui.item.value.indexOf(myLoc.address()) > -1) {
 						vm.currentLocation(myLoc);
+						vm.filteredLocation(myLoc);
 						for (var i= 0; i < allMarkers.length; i++) {
 							myMarker = allMarkers[i];
 							/** "map" the marker to the Location via the Title propery */

@@ -42,7 +42,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 	<div class="bordered location-list">
 		<ul id="map-list" data-bind="foreach: locationList">
 			<li>
-			<h2 class="link" data-bind="text: name, click: $parent.selectLocation, style: { color: $parent.currentLocation().name == name ? 'yellow' : 'black' }"></h2>
+			<h2 class="link" data-bind="text: name, click: $parent.selectLocation, style: { color: $parent.currentLocation().name == name ? 'yellow' : 'black', display: $parent.filteredLocation().name != name && $parent.filteredLocation() != 'none' ? 'none' : 'inline-flex' }"></h2>
 			</li>
 		</ul>
 	</div>
