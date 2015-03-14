@@ -203,7 +203,7 @@ var LocationsMap = function() {
 						"<p>Attribution: Uluru, <a href='https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194'>" +
 						"https://en.wikipedia.org/w/index.php?title=Uluru</a>" +
 						"(last visited June 22, 2009).</p>" +
-						"</div>" +
+						"</div>";
 				}
 		});
 		contentString += "</div>";
