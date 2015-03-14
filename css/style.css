@@ -95,6 +95,13 @@ ul {
 	width: 100%;
 }
 
-@media only screen and (max-device-width: 480px) {
-	.location-list { display: none; }
+@media (max-width: 900px)
+.slide {
+	width: 90%;
+	height: 100%;
+	float: left;
+	height: 90px;
+	position: relative;
+	overflow: hidden;
+	color: #535353;
 }
