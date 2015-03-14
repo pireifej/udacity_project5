@@ -65,27 +65,17 @@ ul {
 	border: 2px solid;
 	border-radius: 25px;
 	background-color: white;
-	margin-top: 30px;
 }
 
 .location-list {
-	margin-left: 20px;
-	top: 150px;
-	padding: 30px 30px 30px 30px;
+
 }
 
 .location-detail {
-    width: 500px;
-	height: 500px;
-	margin-left: 1080px;
-	top: 150px;
-	padding: 30px 30px 30px 30px;
 	overflow-y: scroll;
 }
 
 .search-tool {
-	margin-left: 20px;
-	top: 5px;
-	padding: 30px 30px 30px 30px;
+
 }
 
