@@ -104,6 +104,12 @@ ul {
 	background-color: #FFFFFF;
 }
 
+@media only screen and (max-width: 1026px) {
+	.slide {
+		display: none;
+	}
+}
+
 .header {
 	font-weight: bold;
 	text-align: center;
@@ -112,10 +118,4 @@ ul {
 .sub-heading {
 	text-decoration: underline;
 	text-align: center;
-}
-
-@media only screen and (max-width: 1026px) {
-	.slide {
-		display: none;
-	}
 }
