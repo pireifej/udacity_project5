@@ -41,7 +41,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 	</div>
 
 	<!-- List of Locations -->
-	<div class="slide bordered location-list">
+	<div class="bordered location-list">
 		<ul id="map-list" data-bind="foreach: locationList">
 			<li>
 			<h2 class="link" data-bind="text: name, click: $parent.selectLocation, style: { color: $parent.currentLocation().name == name ? 'yellow' : 'black', display: $parent.filteredLocation().name != name && $parent.filteredLocation() != 'none' ? 'none' : 'inline-flex' }"></h2>
@@ -50,7 +50,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 	</div>
 
 	<!-- Location details -->
-	<div class="bordered location-detail">
+	<div class="slide bordered location-detail">
 		<div data-bind="with: currentLocation">
 	        <h2 data-bind="text: name"></h2>
 	        <h2 data-bind="text: address"></h2>
