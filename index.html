@@ -41,7 +41,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 	</div>
 
 	<!-- List of Locations -->
-	<div class="bordered location-list">
+	<div class="slide bordered location-list">
 		<ul id="map-list" data-bind="foreach: locationList">
 			<li>
 			<p class="link" data-bind="text: name, click: $parent.selectLocation, style: { color: $parent.currentLocation().name == name ? 'yellow' : 'black', display: $parent.filteredLocation().name != name && $parent.filteredLocation() != 'none' ? 'none' : 'inline-flex' }"></p>
@@ -53,13 +53,13 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 	<div class="slide bordered location-detail">
 		<div data-bind="with: currentLocation">
 	        <p class="header" data-bind="text: name"></p>
-	        <p data-bind="text: address"></p>
+	        <p class="sub-heading" data-bind="text: address"></p>
     	    <img class="img-responsive" id="googleImg" src="" alt="Google API Image" data-bind="attr{src: imgSrc}">
-			<p id="wiki">Wikipedia Links</p>
+			<p class="sub-heading" id="wiki">Wikipedia Links</p>
 			<div data-bind="foreach: wikiUrls">
 				<li><a data-bind="text: myArticleStr, attr{href: myUrl}"></a></li>
 			</div>
-			<p id="nytimes">New York Times Articles</p>
+			<p class="sub-heading" id="nytimes">New York Times Articles</p>
 			<div data-bind="foreach: nytimesUrls">
 				<li><a data-bind="text: myArticleStr, attr{href: myUrl}"></a></li>
 			</div>
