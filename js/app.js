@@ -53,7 +53,6 @@ var Location = function(data) {
 	/** NY times articles */
 	this.nytimesUrls = ko.observableArray([]);
 
-	/** URL for Google API street view image */
 	this.address = ko.computed(function() {
 		return this.street() + ' ' + this.city() + ', ' + this.state();
 	}, this);
@@ -62,6 +61,7 @@ var Location = function(data) {
 		return "(" + this.name() + ") " + this.address();
 	}, this);
 
+	/** URL for Google API street view image */
 	this.imgSrc = ko.computed(function() {
 		var streetViewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=400x400&location=';
 		return streetViewUrl + this.city() + ', ' + this.state();
@@ -194,16 +194,10 @@ var LocationsMap = function() {
 		$.each(initialLocations, function(index, value) {
 				if (name.indexOf(value.street()) > -1) {
 					var currLoc = value;
-					console.log(value.imgSrc());
-					console.log(value.wikiUrls());
-					console.log(value.articleStrs());
-					console.log(value.nytimesUrls());
-					contentString += "<p class='header'>Uluru</h1>" +
-						"<div id='bodyContent'>" +
-						"<p>Attribution: Uluru, <a href='https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194'>" +
-						"https://en.wikipedia.org/w/index.php?title=Uluru</a>" +
-						"(last visited June 22, 2009).</p>" +
-						"</div>";
+					contentString += "<p class='header'>" + value.name() + "</p>" +
+					contentString += "<p class='sub-heading'>" + value.address() + "</p>";
+					contentString += "<p>Wiki:" + value.wikiUrls()[0].myArticleStr + ", <a href='" + value.wikiUrls()[0].myUrl + "'></a></p>";
+					contentString += "<p>NY Times:" + value.nytimesUrls()[0].myArticleStr + ", <a href='" + value.nytimesUrls()[0].myUrl + "'></a></p>";
 				}
 		});
 		contentString += "</div>";
