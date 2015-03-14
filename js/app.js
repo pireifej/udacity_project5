@@ -188,16 +188,17 @@ var LocationsMap = function() {
 			* or hover over a pin on a map. They usually contain more information
 			* about a location.
 		*/
-		var contentString = "<div id='content'>"+
-			"<div id='locationDetail'>" +
-			"</div>";
+		var contentString = "<div id='content'>" +
+							"<div id='locationDetail'>" +
+							"</div>";
 		$.each(initialLocations, function(index, value) {
 				if (name.indexOf(value.street()) > -1) {
-					var currLoc = value;
+					console.log(value.name());
+					console.log(value.address());
 					contentString += "<p class='header'>" + value.name() + "</p>" +
-					contentString += "<p class='sub-heading'>" + value.address() + "</p>";
-					contentString += "<p>Wiki:" + value.wikiUrls()[0].myArticleStr + ", <a href='" + value.wikiUrls()[0].myUrl + "'></a></p>";
-					contentString += "<p>NY Times:" + value.nytimesUrls()[0].myArticleStr + ", <a href='" + value.nytimesUrls()[0].myUrl + "'></a></p>";
+					"<p class='sub-heading'>" + value.address() + "</p>" +
+					"<p>Wiki:" + value.wikiUrls()[0].myArticleStr + ", <a href='" + value.wikiUrls()[0].myUrl + "'></a></p>" +
+					"<p>NY Times:" + value.nytimesUrls()[0].myArticleStr + ", <a href='" + value.nytimesUrls()[0].myUrl + "'></a></p>";
 				}
 		});
 		contentString += "</div>";
