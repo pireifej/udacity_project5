@@ -193,12 +193,10 @@ var LocationsMap = function() {
 							"</div>";
 		$.each(initialLocations, function(index, value) {
 				if (name.indexOf(value.street()) > -1) {
-					console.log(value.name());
-					console.log(value.address());
 					contentString += "<p class='header'>" + value.name() + "</p>" +
 					"<p class='sub-heading'>" + value.address() + "</p>" +
-					"<p>Wiki:" + value.wikiUrls()[0].myArticleStr + ", <a href='" + value.wikiUrls()[0].myUrl + "'></a></p>" +
-					"<p>NY Times:" + value.nytimesUrls()[0].myArticleStr + ", <a href='" + value.nytimesUrls()[0].myUrl + "'></a></p>";
+					"<a href='" + value.wikiUrls()[0].myUrl + "'>" + value.wikiUrls()[0].myArticleStr + "</a>" +
+					"<a href='" + value.nytimesUrls()[0].myUrl + "'>" + value.nytimesUrls()[0].myArticleStr + "</a>";
 				}
 		});
 		contentString += "</div>";
