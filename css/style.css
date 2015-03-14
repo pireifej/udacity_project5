@@ -5,55 +5,10 @@
 	font-family: 'Roboto', sans-serif;
 }
 
-body {
-    background-color: #CCC;
-}
-
-#map-canvas {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-
-.bgimg {
-	position:fixed;
-	top: 0;
-	left: 0;
-	width:100%;
-	z-index:-1;
-	opacity:1;
-}
-
-.wikipedia-container {
-	float:right;
-	width:290px;
-	padding:10px;
-	margin-right: 10px;
-	background-color: rgba(255,255,255,0.7);
-}
-
-.nytimes-container {
-	padding: 10px;
-	margin-right:300px;
-	background-color: rgba(255,255,255,0.7);
-}
-
-.article-list {
-	margin: 0;
-	padding: 0;
-}
-
-.article {
-	list-style-type: none;
-	padding:10px;
-	border-top: 1px solid #CCC;
-}
-.article:first-child {
-	border-top:none;
-}
-
-.clearfix {
-	overflow: auto;
+html, body, #map-canvas {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
 h1 {
@@ -91,12 +46,6 @@ h2, h3, h4, h5 {
 	padding-right: 5%;
 }
 
-p {
-	font-size: 14px;
-	color: #333333;
-	line-height: 21px;
-}
-
 a {
 	color: #1199C3;
 	text-decoration: none;
@@ -104,86 +53,12 @@ a {
 	display: block;
 }
 
-.orange {
-	background-color: #F5AE23;
-}
-
-.orange-text {
-	color: #F5AE23;
-}
-
-.white-text {
-	font-weight: bold;
-	color: #FFFFFF;
-}
-
-.gray {
-	background-color: #F3F3F3;
-	padding-bottom: 10px;
-	clear:both;
-}
-
-.dark-gray {
-	background-color: #4A4A4A;
-}
-
-#header {
-	background-color: #484848;
-}
-
-.flex-box {
-	display: -webkit-flex;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	padding: 10px;
-}
-
-.center-content {
-	padding-top: 2.5%;
-	padding-left: 5%;
-	padding-right: 5%;
-	padding-bottom: 2.5%
-}
-
 ul {
 	list-style-type: none;
 }
 
-span {
-	padding: 5px;
-	color: white;
-}
-
-#letsConnect {
-	text-align: center;
-}
-
-@media only screen and (max-width: 1024px) {
-	#letsConnect {
-	margin-top: 5%;
-	}
-}
-
-@media only screen and (max-width: 750px) {
-	#letsConnect {
-	margin-top: 10%;
-	}
-}
-
-#map {
-	display: block;
-	height: 100%;
-	margin-left: 5%;
-	margin-right: 5%;
-}
-
-#mapDiv {
-	height: 400px;
-	width: 100%;
-	padding-bottom: 5%;
-	margin-bottom: 30px;
+.link:hover {
+	cursor: pointer;
 }
 
 .bordered {
@@ -193,6 +68,30 @@ span {
 	margin-top: 30px;
 }
 
-.link:hover {
-	cursor: pointer;
+.location-list {
+	position: fixed;
+	margin-left: 20px;
+	top: 150px;
+	padding: 30px 30px 30px 30px;
+}
+
+.location-detail {
+    width: 500px;
+	height: 500px;
+	position: fixed;
+	margin-left: 1080px;
+	top: 150px;
+	padding: 30px 30px 30px 30px;
+	overflow-y: scroll;
+}
+
+.search-tool {
+	position: fixed;
+	margin-left: 20px;
+	top: 5px;
+	padding: 30px 30px 30px 30px;
+}
+
+.search-tool .ui-autocomplete-input {
+	width: 500px;
 }

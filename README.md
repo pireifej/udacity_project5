@@ -19,6 +19,9 @@ A change in the current location always updates four views:
 
 The search toolbar has autocomplete functionality on *multiple* fields. For some example, type in just "0" and you'll get all addresses that have a street name with 0 in it. Also, you can type in "Home" and you'll get all addresses that have a label with "Home" in it (i.e., "Parents' Home" and "My Home"). You can type in "NJ" and all addresses with a state of NJ will show up.
 
+UPDATE AS OF 02/24/2015
+When you search for, and subsequently select, a location, all markers other than the one selected are hidden from view. You can reset the view to show all markers if you clear the search toolbar and hit ENTER.
+
 Some personal notes:
 
 - Please ignore cat_clicker.html and the img directory. The cat clicker was my inspiration. Everytime I got lost with using MVVM, I made reference to my beautiful cat clicker program. I have an emotional connection with the cat clicker now. Please don't judge me.
