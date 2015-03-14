@@ -85,6 +85,7 @@ ul {
 }
 
 .search-tool {
+	width: 25%;
 	position: fixed;
 	top: 5px;
 	padding: 30px 30px 30px 30px;
