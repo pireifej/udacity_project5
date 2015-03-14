@@ -86,12 +86,8 @@ ul {
 }
 
 .search-tool {
-	position: fixed;
 	margin-left: 20px;
 	top: 5px;
 	padding: 30px 30px 30px 30px;
 }
 
-.search-tool .ui-autocomplete-input {
-	width: 500px;
-}
