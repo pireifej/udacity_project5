@@ -65,17 +65,37 @@ ul {
 	border: 2px solid;
 	border-radius: 25px;
 	background-color: white;
+	margin-top: 30px;
 }
 
 .location-list {
-
+	position: fixed;
+	margin-left: 20px;
+	top: 150px;
+	padding: 30px 30px 30px 30px;
 }
 
 .location-detail {
+    width: 500px;
+	height: 500px;
+	position: fixed;
+	margin-left: 1080px;
+	top: 150px;
+	padding: 30px 30px 30px 30px;
 	overflow-y: scroll;
 }
 
 .search-tool {
-
+	position: fixed;
+	margin-left: 20px;
+	top: 5px;
+	padding: 30px 30px 30px 30px;
 }
 
+.search-tool .ui-autocomplete-input {
+	width: 500px;
+}
+
+@media only screen and (max-device-width: 480px) {
+	.location-list { display: none; }
+}
