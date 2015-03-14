@@ -105,3 +105,13 @@ ul {
 	right: 15px;
 	background-color: #FFFFFF;
 }
+
+.header {
+	font-weight: bold;
+}
+
+@media only screen and (max-width: 1026px) {
+	.slide {
+		display: none;
+	}
+}
