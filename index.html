@@ -52,14 +52,14 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 	<!-- Location details -->
 	<div class="slide bordered location-detail">
 		<div data-bind="with: currentLocation">
-	        <h2 data-bind="text: name"></h2>
-	        <h2 data-bind="text: address"></h2>
+	        <p data-bind="text: name"></p>
+	        <p data-bind="text: address"></p>
     	    <img class="img-responsive" id="googleImg" src="" alt="Google API Image" data-bind="attr{src: imgSrc}">
-			<h2 id="wiki">Wikipedia Links</h2>
+			<p id="wiki">Wikipedia Links</p>
 			<div data-bind="foreach: wikiUrls">
 				<li><a data-bind="text: myArticleStr, attr{href: myUrl}"></a></li>
 			</div>
-			<h2 id="nytimes">New York Times Articles</h2>
+			<p id="nytimes">New York Times Articles</p>
 			<div data-bind="foreach: nytimesUrls">
 				<li><a data-bind="text: myArticleStr, attr{href: myUrl}"></a></li>
 			</div>
