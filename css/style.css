@@ -96,6 +96,6 @@ ul {
 	width: 500px;
 }
 
-@media all and (max-width: 300px) {
+@media only screen and (max-device-width: 480px) {
 	.location-list { display: none; }
 }
