@@ -97,5 +97,5 @@ ul {
 }
 
 @media all and (max-width: 300px) {
-	.location_list { display: none; }
+	.location-list { display: none; }
 }
