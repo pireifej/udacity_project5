@@ -188,8 +188,12 @@ var LocationsMap = function() {
 			* or hover over a pin on a map. They usually contain more information
 			* about a location.
 		*/
+		var contentString = '<div id="content">' +
+			"Hello World" + 
+			"</div>";
+
 		var infoWindow = new google.maps.InfoWindow({
-			content: name
+			content: contentString
 		});
 
 		/** kicked off whenever a marker is selected */
