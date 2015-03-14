@@ -205,6 +205,7 @@ var LocationsMap = function() {
 						vm.selectMarker();
 					}
 			});
+			infoWindow.open(map, marker);
 		});
 
 		/** this is where the pin actually gets added to the map.
