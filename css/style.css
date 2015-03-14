@@ -95,3 +95,7 @@ ul {
 .search-tool .ui-autocomplete-input {
 	width: 500px;
 }
+
+@media all and (max-width: 300px) {
+	.location_list { display: none; }
+}
