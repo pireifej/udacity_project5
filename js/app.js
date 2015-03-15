@@ -195,11 +195,11 @@ var LocationsMap = function() {
 					"<p class='sub-heading'>" + value.address() + "</p>" +
 					"<p class='sub-heading'>Wiki Links</p>";
 					for (var i = 0; i < value.wikiUrls().length; i++) {
-						contentString += "<a href='" + value.wikiUrls()[i].myUrl + "'>" + value.wikiUrls()[i].myArticleStr + "</a><br>";
+						contentString += "<a href='" + value.wikiUrls()[i].myUrl + "'>" + value.wikiUrls()[i].myArticleStr + "</a>";
 					}
 					contentString += "<p class='sub-heading'>NY Times Links</p>";
 					for (var i = 0; i < value.nytimesUrls().length; i++) {
-						contentString += "<a href='" + value.nytimesUrls()[i].myUrl + "'>" + value.nytimesUrls()[i].myArticleStr + "</a><br>";
+						contentString += "<a href='" + value.nytimesUrls()[i].myUrl + "'>" + value.nytimesUrls()[i].myArticleStr + "</a>";
 					}
 				}
 		});
