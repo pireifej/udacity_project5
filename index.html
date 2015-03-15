@@ -46,8 +46,12 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 		<input id="search">
 	</div>
 
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#map-location-list">
+  Simple collapsible
+</button>
+
 	<!-- List of Locations -->
-	<div data-role="collapsible" class="bordered location-list">
+	<div id="map-location-list" class="bordered location-list collapse in">
 		<ul id="map-list" data-bind="foreach: locationList">
 			<li>
 			<p class="link" data-bind="text: name, click: $parent.selectLocation, style: { color: $parent.currentLocation().name == name ? 'yellow' : 'black', display: $parent.filteredLocation().name != name && $parent.filteredLocation() != 'none' ? 'none' : 'inline-flex' }"></p>
