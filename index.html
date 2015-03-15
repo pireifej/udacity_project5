@@ -18,6 +18,12 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 	<!-- Tells the browser what the title of this page should be. -->
 	<title>Neighborhood Map Project</title>
 
+	<!-- jQuery Mobile for Collapsibles. -->
+	<link href="css/jquery.mobile.custom.structure.min.css" rel="stylesheet" type="text/css">
+
+	<!-- jQuery Mobile for Collapsibles. -->
+	<link href="css/jquery.mobile.custom.theme.min.css" rel="stylesheet" type="text/css">
+
 	<!-- Load the page styles. -->
 	<link href="css/style.css" rel="stylesheet" type="text/css">
 
@@ -41,7 +47,7 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 	</div>
 
 	<!-- List of Locations -->
-	<div class="bordered location-list">
+	<div data-role="collapsible" class="bordered location-list">
 		<ul id="map-list" data-bind="foreach: locationList">
 			<li>
 			<p class="link" data-bind="text: name, click: $parent.selectLocation, style: { color: $parent.currentLocation().name == name ? 'yellow' : 'black', display: $parent.filteredLocation().name != name && $parent.filteredLocation() != 'none' ? 'none' : 'inline-flex' }"></p>
@@ -83,6 +89,9 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 
 	<!-- jQuery UI is used for the autocomplete search functionality. -->
 	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+	<!-- jQuery Mobile for Collapsibles. -->
+	<script src="js/jquery.mobile.custom.min.js"></script>
 
 	<!-- Knockout framework -->
 	<script src="js/knockout-3.2.0.js"></script>
