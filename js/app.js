@@ -193,8 +193,14 @@ var LocationsMap = function() {
 				if (name.indexOf(value.street()) > -1) {
 					contentString += "<p class='header'>" + value.name() + "</p>" +
 					"<p class='sub-heading'>" + value.address() + "</p>" +
-					"<a href='" + value.wikiUrls()[0].myUrl + "'>" + value.wikiUrls()[0].myArticleStr + "</a>" +
-					"<a href='" + value.nytimesUrls()[0].myUrl + "'>" + value.nytimesUrls()[0].myArticleStr + "</a>";
+					"<p class='sub-heading'>Wiki Links</p>";
+					for (var i = 0; i < value.wikiUrls().length; i++) {
+						contentString += "<a href='" + value.wikiUrls()[i].myUrl + "'>" + value.wikiUrls()[i].myArticleStr + "</a><br>" +
+					}
+					contentString += "<p class='sub-heading'>NY Times Links</p>";
+					for (var i = 0; i < value.nytimesUrls().length; i++) {
+						contentString += "<a href='" + value.nytimesUrls()[i].myUrl + "'>" + value.nytimesUrls()[i].myArticleStr + "</a><br>";
+					}
 				}
 		});
 		contentString += "</div>";
