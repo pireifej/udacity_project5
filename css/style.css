@@ -119,3 +119,9 @@ ul {
 	text-decoration: underline;
 	text-align: center;
 }
+
+.pop-up {
+    overflow-y: scroll;
+    max-height: 100px;
+    max-width: 300px;
+}
