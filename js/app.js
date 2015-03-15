@@ -188,9 +188,7 @@ var LocationsMap = function() {
 			* or hover over a pin on a map. They usually contain more information
 			* about a location.
 		*/
-		var contentString = "<div id='content'>" +
-							"<div id='locationDetail'>" +
-							"</div>";
+		var contentString = "<div style='overflow-y: scroll' id='locationDetail'>" +
 		$.each(initialLocations, function(index, value) {
 				if (name.indexOf(value.street()) > -1) {
 					contentString += "<p class='header'>" + value.name() + "</p>" +
