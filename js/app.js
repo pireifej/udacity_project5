@@ -335,6 +335,7 @@ if (typeof google != "undefined") {
 	google.maps.event.addDomListener(window, 'load', myMap.initializeMap);
 } else {
 	$("#map-canvas").text("Oops - Google Map is blocked!");
+	$("#map-canvas").addClass("google-error");
 }
 
 var map;
