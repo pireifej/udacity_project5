@@ -336,6 +336,7 @@ if (typeof google != "undefined") {
 } else {
 	$("#map-canvas").text("Oops - Google Map is blocked!");
 	$("#map-canvas").addClass("google-error");
+	$("#map-canvas").addClass("h1");
 }
 
 var map;
