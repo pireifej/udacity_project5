@@ -63,7 +63,7 @@ var Location = function(data) {
 
 	/** URL for Google API street view image */
 	this.imgSrc = ko.computed(function() {
-		var streetViewUrl = 'http://maps.ggoogleapis.com/maps/api/streetview?size=400x400&location=';
+		var streetViewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=400x400&location=';
 		return streetViewUrl + this.city() + ', ' + this.state();
 	}, this);
 
