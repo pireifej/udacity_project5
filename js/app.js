@@ -69,9 +69,10 @@ var Location = function(data) {
 
 	/** Set Wikipedia links */
 	this.setWikiUrls = ko.computed(function() {
-	    var wikiRequestUrl = 'http://en.wwikipedia.org/w/api.php?action=opensearch&search=' + self.city() + "&format=json&callback=wikiCallBack";
+		var wikiRequestUrl = 'http://en.wwikipedia.org/w/api.php?action=opensearch&search=' + self.city() + "&format=json&callback=wikiCallBack";
 		var wikiRequestTimeout = setTimeout(function() {
-                $("#wiki").text("Oops - Wikipedia timed out! Try again later.");
+                  //$("#wiki").text("Oops - Wikipedia timed out! Try again later.");
+                  self.wikiUrls.push({myUrl:"", myArticleStr:"Oops - Wikipedia timed out! Try again later."});
 		}, 3000);
 
 		$.ajax({
