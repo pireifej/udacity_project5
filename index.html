@@ -41,8 +41,8 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 	</div>
 
 	<!-- List of Locations -->
+	<button id="toggle-list" type="button" class="bordered toggle-list-button">+ Location List</button>
 	<div id="map-location-list" class="bordered location-list">
-		<button id="toggle-list" type="button">+ Location List</button>
 		<ul id="map-list" data-bind="foreach: locationList">
 			<li>
 			<p class="link" data-bind="text: name, click: $parent.selectLocation, style: { color: $parent.currentLocation().name == name ? 'yellow' : 'black', display: $parent.filteredLocation().name != name && $parent.filteredLocation() != 'none' ? 'none' : 'inline-flex' }"></p>
