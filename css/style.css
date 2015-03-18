@@ -70,14 +70,14 @@ ul {
 .toggle-list-button {
 	position: fixed;
 	margin-left: 20px;
-	top: 140px;
+	top: 130px;
 	padding: 10px 10px 10px 10px;
 }
 
 .location-list {
 	position: fixed;
 	margin-left: 20px;
-	top: 150px;
+	top: 180px;
 	padding: 10px 10px 10px 10px;
 }
 
