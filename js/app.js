@@ -69,7 +69,7 @@ var Location = function(data) {
 
 	/** Set Wikipedia links */
 	this.setWikiUrls = ko.computed(function() {
-		var wikiRequestUrl = 'http://en.wwikipedia.org/w/api.php?action=opensearch&search=' + self.city() + "&format=json&callback=wikiCallBack";
+		var wikiRequestUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + self.city() + "&format=json&callback=wikiCallBack";
 		var wikiRequestTimeout = setTimeout(function() {
 			self.wikiUrls.push({myUrl:"", myArticleStr:"Oops - Wikipedia timed out! Try again later."});
 		}, 3000);
@@ -92,7 +92,7 @@ var Location = function(data) {
 
 	/** Set New York Times links */
     this.setNytimesUrls = ko.computed(function() {
-		var nytimesURL = 'http://api.nnytimes.com/svc/search/v2/articlesearch.json?q=' + self.city() + '&api-key=393997003a2ed9f518a44b5c77316eaf:17:70996517';
+		var nytimesURL = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' + self.city() + '&api-key=393997003a2ed9f518a44b5c77316eaf:17:70996517';
 
 		$.getJSON(nytimesURL, function(data) {
 			var articles = data.response.docs;
