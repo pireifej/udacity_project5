@@ -386,6 +386,5 @@ $("#search").autocomplete({
 });
 
 $("#toggle-list").click(function() {
-	console.log("Clicked");
-	$("#map-location-list").hide();
+	$("#map-location-list").toggle();
 });
