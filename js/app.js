@@ -91,6 +91,7 @@ var Location = function(data) {
 	}, this);
 
 	/** Set Wikipedia links */
+/*
 	this.setWikiUrls = ko.computed(function() {
 		var wikiRequestUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + self.city() + "&format=json&callback=wikiCallBack";
 		var wikiRequestTimeout = setTimeout(function() {
@@ -112,6 +113,7 @@ var Location = function(data) {
 			}
 		});
 	},this);
+*/
 
 	/** Set New York Times links */
     this.setNytimesUrls = ko.computed(function() {
@@ -133,6 +135,17 @@ var Location = function(data) {
 
 /** list of initial Locations - simply add a new Location() here to extend the application */
 var initialLocations = [
+	new Location(
+	{
+		name: "",
+		street: "",
+		city: "",
+		state: "",
+		notes: "",
+		image: "",
+		lat: 41.4745403,
+		lon: -74.0270993
+	}),
 	// upstate NY
 	new Location(
 	{
@@ -140,7 +153,7 @@ var initialLocations = [
 		street: "3 On the Green",
 		city: "New Windsor",
 		state: "NY",
-		notes: "We came here often when preparing for the wedding.",
+		notes: "This is where my parents live. We came here often when preparing for the wedding.",
 		image: "windsor",
 		lat: 41.4745403,
 		lon: -74.0270993
@@ -151,7 +164,7 @@ var initialLocations = [
 		street: "29 Old Balmville Rd",
 		city: "Newburgh",
 		state: "NY",
-		notes: "We had our wedding reception here. We danced to You'll Be in My Heart by Phil Collins and then did the YMCA.",
+		notes: "We had our wedding reception here. We danced to 'You'll Be in My Heart' by Phil Collins and then did the YMCA.",
 		image: "powelton",
 		lat: 41.523726,
 		lon: -74.0196777
@@ -213,6 +226,17 @@ var initialLocations = [
 	}),
 	new Location(
 	{
+		name: "West Point",
+		street: "415 Main St",
+		city: "Highland Falls",
+		state: "NY",
+		notes: "We visited West Point for a tour with popo. We were in the cemetary talking about gravestones for 1 hour.",
+		image: "westpoint",
+		lat: 41.3733545,
+		lon: -74.0650603
+	}),
+	new Location(
+	{
 		name: "Red Lobster",
 		street: "303 NJ-10",
 		city: "Ledgewood",
@@ -229,7 +253,7 @@ var initialLocations = [
 		street: "294 Main St",
 		city: "Madison",
 		state: "NJ",
-		notes: "I spent a lot of time here early into our relationship. Many times, I didn't even go back to my apartment; I just sleep over and we went into work together. Eventually we got married and moved here together.",
+		notes: "I spent a lot of time here early into our relationship. Many times, I didn't even go back to my apartment; I just sleep over and we went into work together. We were madly inlove. I told you my feelings when sitting on the blue couch after an episode of Harry's Law. Perfect timing. Eventually we got married and moved here together.",
 		image: "apt",
 		lat: 40.750938,
 		lon: -74.4019547
@@ -266,6 +290,61 @@ var initialLocations = [
 		image: "chinachalet",
 		lat: 40.78943,
 		lon: -74.393459
+	}),
+	new Location(
+	{
+		name: "KFC",
+		street: "185 Ridgedale Ave",
+		city: "Florham Park",
+		state: "NJ",
+		notes: "You're obsessed with KFC and love eating here as often as you can. I didn't like it that much but tolerated it for your sake. You always asked for chicken legs only and we usually got drinks & sides. I was usually depressed after eating here.",
+		image: "kfc",
+		lat: 40.7877236,
+		lon: -74.3920268
+	}),
+	new Location(
+	{
+		name: "Panera Bread",
+		street: "187 Columbia Turnpike",
+		city: "Florham Park",
+		state: "NJ",
+		notes: "We came here a few times for lunch, usually during work because the location is convenient. They had good soups.",
+		image: "panera",
+		lat: 40.7871662,
+		lon: -74.3917238
+	}),
+	new Location(
+	{
+		name: "Viet Ai Vietnamese Restaurant",
+		street: "189 Ridgedale Ave",
+		city: "Florham Park",
+		state: "NJ",
+		notes: "We had delicious Vietnamese cuisine here that always hit the spot (if you will). We enjoyed the spring rolls, vegetable rolls and beef soups.",
+		image: "viet",
+		lat: 40.7872921,
+		lon: -74.3919009
+	}),
+	new Location(
+	{
+		name: "Trader Joe's",
+		street: "176 Columbia Turnpike",
+		city: "Florham Park",
+		state: "NJ",
+		notes: "We came here rarely (maybe 2 times in total) and bought almost nothing. It had a nice farm-like feel to it and we enjoyed their free coffee samples.",
+		image: "trader",
+		lat: 40.7890754,
+		lon: -74.3920002
+	}),
+	new Location(
+	{
+		name: "QDOBA Mexican Eats",
+		street: "176 Columbia Turnpike",
+		city: "Florham Park",
+		state: "NJ",
+		notes: "I always mispronounced the name of this place. We had lunch each several times during work when we needed a Mexican fix.",
+		image: "qdoba",
+		lat: 40.7886387,
+		lon: -74.3879704
 	}),
 	new Location(
 	{
@@ -306,7 +385,7 @@ var initialLocations = [
 		street: "2 Waverly Pl",
 		city: "Madison",
 		state: "NJ",
-		notes: "This was our bank of choice for opening a joint account where we eventually deposited all checks given to us as wedding gifts. There was a nice african american gentleman who helped us. We also came here to get cash from the ATM. One night, we bumped into Cathy Deng here and we gave her a ride back to her place. When I tried meeting you for the first time at Soho 33, I got lost (naturally) and I think I accidentally turned into this place.",
+		notes: "This was our bank of choice for opening a joint account where we eventually deposited all checks given to us as wedding gifts. There was a nice African American gentleman named Tamba Peters who helped us. We also came here to get cash from the ATM. One night, we bumped into Cathy Deng here and we gave her a ride back to her place. When I tried meeting you for the first time at Soho 33, I got lost (naturally) and I think I accidentally turned into this place.",
 		image: "chase",
 		lat: 40.7576205,
 		lon: -74.413487
@@ -328,7 +407,7 @@ var initialLocations = [
 		street: "111 Kings Rd",
 		city: "Madison",
 		state: "NJ",
-		notes: "You came here every week by yourself to go swimming. After we were together, I went with you and we swam together. I clogged the pool with my hair. We also spent time in the hot tub together, even when you were pregnant at one point (by mistake!). We also did some classes here: Zumba, Step, Spinning. There was an older asian woman who you wanted to avoid talking to because she asked you about awkward things.",
+		notes: "You came here every week by yourself to go swimming. After we were together, I went with you and we swam together. I clogged the pool with my hair. We also spent time in the hot tub together, even after you were pregnant. We also did some classes here: Zumba, Step, Spinning. There was an older asian woman who you wanted to avoid talking to because she asked you about awkward things.",
 		image: "ymca",
 		lat: 40.7536227,
 		lon: -74.4147795
@@ -339,7 +418,7 @@ var initialLocations = [
 		street: "300 Main St",
 		city: "Madison",
 		state: "NJ",
-		notes: "We came here for sushi often since it was convenientally closed to our apartment. We came here once after doing the 'Cross Walk' at my church in Parispanny.",
+		notes: "We came here for sushi often since it was convenientally close to our apartment. We did take out here one night after doing the 'Cross Walk' at St. Ann in Parispanny.",
 		image: "yukihana",
 		lat: 40.749639,
 		lon: -74.398945
@@ -361,7 +440,7 @@ var initialLocations = [
 		street: "306 Main St",
 		city: "Madison",
 		state: "NJ",
-		notes: "We cleaned all of my clothes here after we moved in together because they were smelly. It took 4 hours.",
+		notes: "We cleaned all of my clothes here after we moved in together because they were smelly. It took 4 1/2 hours.",
 		image: "laundromat",
 		lat: 40.7498169,
 		lon: -74.3989592
@@ -416,7 +495,7 @@ var initialLocations = [
 		street: "459 Main St",
 		city: "Chatham",
 		state: "NJ",
-		notes: "We came here sometimes in the morning to get a delicious egg & cheese bagel with ketchup. When I started driving from Holmdel to Florham Park on my own, I came stopped here and got a bagel/coffee alone. That was so depressing.",
+		notes: "We came here sometimes in the morning to get a delicious egg & cheese bagel with ketchup. When I started driving from Holmdel to Florham Park on my own, I stopped here and got a bagel/coffee alone. That was so depressing.",
 		image: "noah",
 		lat: 40.7465694,
 		lon: -74.3974152
@@ -427,7 +506,7 @@ var initialLocations = [
 		street: "222 Main St",
 		city: "Madison",
 		state: "NJ",
-		notes: "We came here just to have a place to walk to from your apartment. One time, you let me practice one of my Toastmasters speeches when we walked here. If we bought stuff from here, it was rare because it's usually expensive. We had the prepared meals here a few times. One night, it was raining very heavily. Because I'm dumb, I proposed we just run back to the apartment.",
+		notes: "We came here just to have a place to walk to from your apartment. One time, you let me practice one of my Toastmasters speeches when we walked here. If we bought stuff, it was rare because it's expensive. We ate the prepared meals a few times. One night, as we walked back to your apartment, it started raining very heavily. Because I'm dumb, I proposed we just run back to the apartment.",
 		image: "wholefoods",
 		lat: 40.7534523,
 		lon: -74.4077012
@@ -449,7 +528,7 @@ var initialLocations = [
 		street: "156 Sr-10 West",
 		city: "East Hanover",
 		state: "NJ",
-		notes: "We came here at least once per week to shop! You also got new tires from their auto shop. This was my introduction into Costco. I found it very hectic at first and was always confused which side of the checkout counter I was supposed to go.",
+		notes: "We came here at least once per week to shop for groceries! You also got new tires from their auto shop. This was my introduction into Costco. I found it very hectic at first and was always confused which side of the checkout counter I was supposed to go. I remember being nervous when you would go shopping while I was waiting on line since I didn't have a Costco membership card at that time.",
 		image: "costco",
 		lat: 40.8127234,
 		lon: -74.3815172,
@@ -482,7 +561,7 @@ var initialLocations = [
 		street: "200 NJ-10",
 		city: "East Hanover",
 		state: "NJ",
-		notes: "We enjoyed the Malaysian Fried Rice from this place. We came here to sit and eat and sometimes did take out. I think we did take out from here one day when we were cleaning my Parsippany apartment. I think we ate here one time early on in our relationship and you were dressed like Steve Jobs.",
+		notes: "We enjoyed the Malaysian Fried Rice from this place. We came here to sit and eat and sometimes did take out. We did take out from here one day when we were cleaning my Parsippany apartment. We ate here one time early on in our relationship and you were dressed like Steve Jobs.",
 		image: "penang",
 		lat: 40.8092315,
 		lon: -74.375435
@@ -504,7 +583,7 @@ var initialLocations = [
 		street: "14 Lincoln Pl",
 		city: "Madison",
 		state: "NJ",
-		notes: "This was our second 'date' (if you will) where we saw the silent black & white movie 'The Artist.'",
+		notes: "This was our second 'date' (if you will) where we saw the silent black & white movie 'The Artist.' I remember having a strong urge to hug you during the movie but would have been inappropriate. You're fluffy and huggable like Raphael.",
 		image: "bow",
 		lat: 40.7574163,
 		lon: -74.416834
@@ -526,7 +605,7 @@ var initialLocations = [
 		street: "22 Main St",
 		city: "Madison",
 		state: "NJ",
-		notes: "First 'date'. We met here for the first time outside of work. We talked mostly about work. Afterwards you helped me to find where I parked my car because you knew I was clueless. You shipped a package in the post office aftwards. About 4 months later, I officially proposed to you here.",
+		notes: "First 'date'. We met here for the first time outside of work. We talked mostly about work. Afterwards you helped me to find where I parked my car because you knew I was lost. You shipped a package in the post office aftwards. About 4 months later, I officially proposed to you here.",
 		image: "soho",
 		lat: 40.7595586,
 		lon: -74.4185509
@@ -537,7 +616,7 @@ var initialLocations = [
 		street: "301 Rockaway Valley Rd",
 		city: "Bonton",
 		state: "NJ",
-		notes: "hideous alpacas",
+		notes: "We visited this farm to look at the hideous alpacas with popo and get pumpkins.",
 		image: "brookhollow",
 		lat: 40.937517,
 		lon: -74.4264767
@@ -548,7 +627,7 @@ var initialLocations = [
 		street: "Cape May",
 		city: "Cape May",
 		state: "NJ",
-		notes: "Catching sharks with Chinese people, one of our very early expeditions. Before you met me, you went on outings with a Chinese group you met online (or something creepy like that). Since then, we tried to plan stuff together and preferred to do it alone because of our enormous and extensive love.",
+		notes: "Catching sharks with Chinese people, one of our very early expeditions. Before you met me, you went on outings with a Chinese group you met online (or something creepy like that). Since then, we tried to plan stuff together and preferred to do it without the group because of our enormous and extensive love.",
 		image: "capemay",
 		lat: 38.9392798,
 		lon: -74.9227128
@@ -559,7 +638,7 @@ var initialLocations = [
 		street: "89 Ridge St",
 		city: "Newark",
 		state: "NJ",
-		notes: "very early outing we did during work",
+		notes: "Very early outing we did during work. We wanted to look at the cherry blossoms but, alas, no cherries were blossoming at this time.",
 		image: "sacredheart",
 		lat: 40.7549078,
 		lon: -74.1806966
@@ -581,7 +660,7 @@ var initialLocations = [
 		street: "1200 Morris Turnpike",
 		city: "Short Hills",
 		state: "NJ",
-		notes: "We came here for shopping sometims. You told me many times how high end it is. We had lunch here often at Panera Bread.",
+		notes: "We came here for shopping sometimes. You reminded me constantly how high end it is. We had lunch here often at Au Bon Pain.",
 		image: "shorthills",
 		lat: 40.7402136,
 		lon: -74.3664926
@@ -592,7 +671,7 @@ var initialLocations = [
 		street: "80 Route 22 West",
 		city: "Springfield",
 		state: "NJ",
-		notes: "Getting your wedding dress.",
+		notes: "Getting your wedding dress. We returned a few times for adjustments. They ripped us off and I'm pretty sure we got angry at them. Driving here was always so dangerous because of the U-turn we had to make at one point. To make it worse, we usually traveled here at night.",
 		image: "david",
 		lat: 40.6665609,
 		lon: -74.3527924
@@ -614,7 +693,7 @@ var initialLocations = [
 		street: "860 Mountain Ave",
 		city: "Mountainside",
 		state: "NJ",
-		notes: "Honey mooning!",
+		notes: "This was during your Groupon phase. You got a special deal online at this place, but we learned that the hours were very weird. I think we drove here one evening only to find out it was closed.",
 		image: "daimatsu",
 		lat: 40.6665609,
 		lon: -74.3527924
@@ -625,7 +704,7 @@ var initialLocations = [
 		street: "34 Cooper Sq",
 		city: "New York",
 		state: "NY",
-		notes: "Wecame here with your friend Yung-Kyun.",
+		notes: "We came here with your friend Yung-Kyun.",
 		image: "gyukaku",
 		lat: 40.728262,
 		lon: -73.9936867
@@ -654,6 +733,17 @@ var initialLocations = [
 	}),
 	new Location(
 	{
+		name: "Marc Motors",
+		street: "85 Main St",
+		city: "Madison",
+		state: "NJ",
+		notes: "Marc Albert was your favorite mechanic because he kept his shop very clean.",
+		image: "marc",
+		lat: 40.7580297,
+		lon: -74.413846
+	}),
+	new Location(
+	{
 		name: "Gerswhin Theatre",
 		street: "222 W 51st St",
 		city: "New York",
@@ -662,6 +752,28 @@ var initialLocations = [
 		image: "gerswhin",
 		lat: 40.7623402,
 		lon: -73.987424
+	}),
+	new Location(
+	{
+		name: "Salon De Tops",
+		street: "76 Elizabeth St",
+		city: "New York",
+		state: "NY",
+		notes: "This is your haircut place of choice. The gentleman cutting your hair used to ask you about me; if I'm your boyfriend, husband or just play thing. I'm all of the above, baby. I used to wait for you while you get your hair cut, eagerly awaiting the lunch and bubble tea that's to follow.",
+		image: "salon",
+		lat: 40.7178132,
+		lon: -73.9982093
+	}),
+	new Location(
+	{
+		name: "XO Kitchen",
+		street: "148 Hester St",
+		city: "New York",
+		state: "NY",
+		notes: "We came here for lunch most times when we visited NYC for your haircut. It was delicious food and I especialy enjoyed the bubble tea!",
+		image: "xo",
+		lat: 40.7166572,
+		lon: -73.9963441
 	}),
 	new Location(
 	{
@@ -691,7 +803,7 @@ var initialLocations = [
 		street: "N Park Pl & W Park Place",
 		city: "Morristown",
 		state: "NJ",
-		notes: "We came here briefly when walking to Jos. A. Bank.",
+		notes: "We came here briefly on the way to Jos. A. Bank.",
 		image: "green",
 		lat: 40.7975552,
 		lon: -74.4808497
@@ -718,6 +830,61 @@ var initialLocations = [
 		lat: 40.5037552,
 		lon: -74.4024338
 	}),
+	new Location(
+	{
+		name: "Garlic Rose Bistro",
+		street: "41 Main St.",
+		city: "Madison",
+		state: "NJ",
+		notes: "We had a romantic, up-scale dinner here one night (I think when you were pregnant with Gabriel). It was deliciously mediocre. I probably had pasta and you had some sea-related cuisine.",
+		image: "garlic",
+		lat: 40.759021,
+		lon: -74.4181387
+	}),
+	new Location(
+	{
+		name: "Harrah Resort Atlantic City",
+		street: "777 Harrah's Blvd.",
+		city: "Atlatnic City",
+		state: "NJ",
+		notes: "We came here for a multi-day outing when you were very pregnant with Gabriel. We had fun using a Groupon to get an unreasonable number of orange juice drinks per day. We ate daily at a very nice buffet. We slept over in their hotel and watched America's Got Talent in the evenings. It was the last vacation we would ever have.",
+		image: "atlantic",
+		lat: 39.3843009,
+		lon: -74.4304509
+	}),
+	new Location(
+	{
+		name: "Public Storage",
+		street: "300 NJ-10",
+		city: "East Hanover",
+		state: "NJ",
+		notes: "This is where we kept our extra furniture and stuff that we couldn't cram into your apartment after we moved in together. We hired two strong Russian men (Igor and Igor Jr.) to help us move.",
+		image: "storage",
+		lat: 40.8088387,
+		lon: -74.3818293
+	}),
+	new Location(
+	{
+		name: "AMC Loews East Hanover 12",
+		street: "145 NJ-10",
+		city: "East Hanover",
+		state: "NJ",
+		notes: "This was our favorite movie theatre to have romantic outings early into our relationship. I would try very hard to hold your hand during the entire duration of the movie.",
+		image: "movie",
+		lat: 40.8090487,
+		lon: -74.3820834
+	}),
+	new Location(
+	{
+		name: "Dr. Sharon Mass",
+		street: "101 Madison Ave",
+		city: "Morristown",
+		state: "NJ",
+		notes: "I think Dr. Sharon Mass was the first OBGYN we visited to check on Gabriel. We were concerned that the salads I prepared for lunch used deli meat. We were also concerned that we gorged on tiramisu. And we boiled Gabriel in the hot tub. All three points turned out to be moot; Gabriel was destined to be 'screw up' regardless.",
+		image: "obgyn",
+		lat: 40.7879006,
+		lon: -74.4638389
+	}),
      // Holmdel
 	new Location(
 	{
@@ -725,7 +892,7 @@ var initialLocations = [
 		street: "2 Windsor Terrace",
 		city: "Holmdel",
 		state: "NJ",
-		notes: "We bought this home from Alice Houston. We commuted here often during week nights, after work, to move our stuff over. I remember one particular romantic night (maybe two?) where we watched fireworks as we drove back from our new home to our apartment. The house is OK. We learned that the plumbing has trees growing in it, the toilets use water for no reason and we have mice in the basement but that's OK.",
+		notes: "We bought this home from Alice Houston. We commuted here often during week nights, after work, to move our stuff over. I remember one particular romantic night (maybe two?) where we watched fireworks as we drove back from our new home to our apartment. The house is OK. We learned that the plumbing has trees growing in it, the toilets run water for no reason and we have mice in the basement but that's OK. Also it's haunted.",
 		image: "2windsorterr",
 		lat: 40.4055193,
 		lon: -74.1730312
@@ -741,18 +908,29 @@ var initialLocations = [
 		lat: 40.3974568,
 		lon: -74.1378021
 	}),
-     // Europe
 	new Location(
 	{
-		name: "House of Virgin Mary",
-		street: "35922 Selçuk/İzmir",
-		city: "Istanbul",
-		state: "Turkey",
-		notes: "We got the holiest of waters here at the house of the Virgin Mary.",
-		image: "virgin",
-		lat: 37.9124015,
-		lon: 27.3305685
+		name: "Weichert",
+		street: "43 Main St",
+		city: "Holmdel",
+		state: "NJ",
+		notes: "This church was actually the location of Weichert. This is where we met the sales-associate-of-the-month the Great Martina Concepcion. She thought my name was Pauly. She was an expert on septic tanks. We drove around Holmdel and Middletown in her smoky car to look at houses.",
+		image: "weichert",
+		lat: 40.3454014,
+		lon: -74.1863203
 	}),
+	new Location(
+	{
+		name: "Dr. Michael Conley",
+		street: "704 N Beers St.",
+		city: "Holmdel",
+		state: "NJ",
+		notes: "We came here for checkups while Gabriel was still in your tummy. We had a great experience with Dr. Michael Conley.",
+		image: "ob",
+		lat: 40.4052293,
+		lon: -74.1969443
+	}),
+     // Other
 	new Location(
 	{
 		name: "Hunan Spring",
@@ -770,7 +948,7 @@ var initialLocations = [
 		street: "466 W Mt Pleasant Ave",
 		city: "Livingston",
 		state: "NJ",
-		notes: "We were looking for a suit that fit my abnormal body for our wedding.",
+		notes: "We were looking for a suit that fit my abnormal body for our wedding. I kept calling back to see if they ordered certain suits. They never arrived.",
 		image: "warehouse",
 		lat: 40.7969928,
 		lon: -74.3469192
@@ -781,7 +959,7 @@ var initialLocations = [
 		street: "277 Eisenhower Pkwy",
 		city: "Livingston",
 		state: "NJ",
-		notes: "We had a lovely authentic Italain dinner here with popo before going to Men's Warehouse. We never came back.",
+		notes: "We had a lovely authentic Italian dinner here with popo before going to Men's Warehouse. We never came back.",
 		image: "olive",
 		lat: 40.7971851,
 		lon: -74.3420867
@@ -814,7 +992,7 @@ var initialLocations = [
 		street: "300 Parsippany Rd",
 		city: "Parsippany",
 		state: "NJ",
-		notes: "This was my old apartment that I lived when we met, before moving in together into your apartment. You helped me to clean everything and move my stuff via two Russian gentleman. We had some very nice memories from here. One night, when I was coughing nonstop, we had a conversation via Notepad.",
+		notes: "This was my old apartment that I lived when we met, before moving in together into your apartment. You helped me to clean everything and move my stuff via two Russian gentleman. We had some very nice memories from here. One night, when I was coughing nonstop, we had a conversation via Notepad. Awwww.",
 		image: "parsippany",
 		lat: 40.8567381,
 		lon: -74.4238114
@@ -829,6 +1007,28 @@ var initialLocations = [
 		image: "lake",
 		lat: 40.848286,
 		lon: -74.4423662
+	}),
+	new Location(
+	{
+		name: "St. Ann Church",
+		street: "781 Smith Rd",
+		city: "Parsippany",
+		state: "NJ",
+		notes: "This was the main church I attended on Sundays when I lived in Parsippany. I helped out here as an usher. We came here together during the early days of our relationship and even went on a Cross Walk together. It was very romantic.",
+		image: "stann",
+		lat: 40.847553,
+		lon: -74.40701
+	}),
+	new Location(
+	{
+		name: "St. Peter the Apostle Church",
+		street: "179 Baldwin Rd",
+		city: "Parsippany",
+		state: "NJ",
+		notes: "We did Pre Cana here. We had a beautiful time here because they had cream cheese and bagels at one point. This is also where we wrote our very personal & emotional love letters to each other. We're going to read them at our 10 year anniversary. I think.",
+		image: "stpeter",
+		lat: 40.864481,
+		lon: -74.3963975
 	}),
 	new Location(
 	{
@@ -847,7 +1047,7 @@ var initialLocations = [
 		street: "36-20 Roosvelt Ave",
 		city: "Flushing",
 		state: "NY",
-		notes: "We had a fun outing here in a very large shopping mall that was an exact replica of China.",
+		notes: "We had a fun outing here in a very large shopping mall that was an exact replica of China. I even suffered from jet lag.",
 		image: "newworldmall",
 		lat: 40.7593729,
 		lon: -73.8312462
@@ -858,7 +1058,7 @@ var initialLocations = [
 		street: "422 E Broad St",
 		city: "Westfield",
 		state: "NJ",
-		notes: "We enjoyed fun things at this YMCA for Paul's kid's birthday. You were pregnant with Gabriel but jumped around on a bouncy thing anyway. That probably explains why Gabriel is screwed up now. I climbed a rock wall.",
+		notes: "We enjoyed fun things at this YMCA for Paul's kid's birthday. You were pregnant with Gabriel but jumped around on a bouncy thing anyway. That probably explains why Gabriel is 'screw up' now. I climbed a rock wall like a monkey.",
 		image: "ymcawest",
 		lat: 40.65452,
 		lon: -74.3468113
@@ -869,7 +1069,7 @@ var initialLocations = [
 		street: "323 Park St",
 		city: "Westfield",
 		state: "NJ",
-		notes: "We went to Paul Lustgarten's children's birthday party at the YMCA and visited his home afterwards.",
+		notes: "We went to Paul Lustgarten's children's birthday party at the YMCA and visited his home afterwards. Our gift was the best.",
 		image: "lustgarten",
 		lat: 40.6452551,
 		lon: -74.3466695
@@ -903,7 +1103,7 @@ var initialLocations = [
 		street: "3054 NJ-35",
 		city: "Hazlet",
 		state: "NJ",
-		notes: "I think we went here for lunch sometimes with my parents.",
+		notes: "I think we went here for lunch sometimes with my parents. We talked about names for Gabriel here.",
 		image: "fridays",
 		lat: 40.419,
 		lon: -74.1824887
@@ -940,6 +1140,17 @@ var initialLocations = [
 		image: "sm",
 		lat: 40.400343,
 		lon: -74.117724
+	}),
+	new Location(
+	{
+		name: "Riverview Medical Center",
+		street: "1 Riverview Plaza",
+		city: "Red Bank",
+		state: "NJ",
+		notes: "This is where our children were born. We came here for classes prior to Gabriel's birth and ultrasound appointments.",
+		image: "riverview",
+		lat: 40.3538638,
+		lon: -74.0653699
 	}),
 	// Paterson
 	new Location(
@@ -993,7 +1204,7 @@ var initialLocations = [
 		street: "Piazza San Pietro, 00120 Città del Vaticano",
 		city: "Vatican City",
 		state: "Italy",
-		notes: "Honey mooning!",
+		notes: "Honey moon!",
 		image: "peter",
 		lat: 41.9021667,
 		lon: 12.451748
@@ -1004,7 +1215,7 @@ var initialLocations = [
 		street: "Piazza del Colosseo, 1, 00184 Roma",
 		city: "Rome",
 		state: "Italy",
-		notes: "Honey mooning!",
+		notes: "One of our first European Honey moon adventures. It was drizzling a little bit outside. We did audio tours that ended up being useless.",
 		image: "col",
 		lat: 41.8902102,
 		lon: 12.4900422
@@ -1015,7 +1226,7 @@ var initialLocations = [
 		street: "Piazza della Rotonda, 00186 Roma",
 		city: "Rome",
 		state: "Italy",
-		notes: "Honey mooning!",
+		notes: "We did an audio tour that was very educational. We walked around and looked at the lovey things.",
 		image: "pantheon",
 		lat: 41.8986108,
 		lon: 12.4746842
@@ -1059,7 +1270,7 @@ var initialLocations = [
 		street: "Acropolis of Athens Greece",
 		city: "Athens",
 		state: "Greece",
-		notes: "Honey moon",
+		notes: "Honey moon!",
 		image: "acropolis",
 		lat: 37.9715323,
 		lon: 23.7235605
@@ -1070,7 +1281,7 @@ var initialLocations = [
 		street: "270 65",
 		city: "Athens",
 		state: "Greece",
-		notes: "Honey moon",
+		notes: "Honey moon!",
 		image: "ancient",
 		lat: 37.650718,
 		lon: 21.6238603
@@ -1081,7 +1292,7 @@ var initialLocations = [
 		street: "Olympia",
 		city: "Olympia",
 		state: "Greece",
-		notes: "Honey mooning!",
+		notes: "Honey moon!",
 		image: "olympia",
 		lat: 37.6434582,
 		lon: 21.6272198
@@ -1092,10 +1303,21 @@ var initialLocations = [
 		street: "Alemdar Mh., Yerebatan Cd. 1/3",
 		city: "Istanbul",
 		state: "Turkey",
-		notes: "Honey mooning.",
+		notes: "We went deep underground to explore the cistern. We found an upside down Medusa head.",
 		image: "cistern",
 		lat: 41.008384,
 		lon: 28.9756893
+	}),
+	new Location(
+	{
+		name: "House of Virgin Mary",
+		street: "35922 Selçuk/İzmir",
+		city: "Istanbul",
+		state: "Turkey",
+		notes: "We got the holiest of waters here at the house of the Virgin Mary.",
+		image: "virgin",
+		lat: 37.9124015,
+		lon: 27.3305685
 	}),
 	new Location(
 	{
@@ -1114,7 +1336,7 @@ var initialLocations = [
 		street: "Sultanahmet Mh., At Meydanı No:7, 34122",
 		city: "Istanbul",
 		state: "Turkey",
-		notes: "",
+		notes: "This is where we discovered our newly adopted religion, Islam.",
 		image: "blue",
 		lat: 41.0054096,
 		lon: 28.9746251
@@ -1125,7 +1347,7 @@ var initialLocations = [
 		street: "Beyazıt Mh., 34126",
 		city: "Istanbul",
 		state: "Turkey",
-		notes: "",
+		notes: "I remember being terrified here and wanted to leave quickly.",
 		image: "bazaar",
 		lat: 41.0106888,
 		lon: 28.9658794
@@ -1136,7 +1358,7 @@ var initialLocations = [
 		street: "Sultanahmet Mh., Ayasofya Meydanı",
 		city: "Istanbul",
 		state: "Turkey",
-		notes: "Honey mooning!",
+		notes: "This was very beautiful. We even stuck our thumbs into a hole in the wall and made a wish. God knows why! We also found the door between Heaven and Hell.",
 		image: "hagia",
 		lat: 41.008583,
 		lon: 28.9779863
@@ -1147,7 +1369,7 @@ var initialLocations = [
 		street: "Atatürk Mah, Uğur Mumcu Sevgi Yolu., 35920 Acarlar Köyü/Selçuk/İzmir",
 		city: "Izmir",
 		state: "Turkey",
-		notes: "Honey mooning!",
+		notes: "Honey moon!",
 		image: "eph",
 		lat: 37.9490349,
 		lon: 27.3655701
@@ -1158,7 +1380,7 @@ var initialLocations = [
 		street: "Fatih/İstanbul",
 		city: "Istanbul",
 		state: "Turkey",
-		notes: "Honey mooning!",
+		notes: "Honey moon!",
 		image: "top",
 		lat: 41.0115195,
 		lon: 28.9811902
@@ -1328,6 +1550,7 @@ var ViewModel = function() {
 	});
 	/** current location - all views are updated based on this value changing */
     this.currentLocation = ko.observable(this.locationList()[0]);
+
 	this.selectLocation = function() {
 		self.currentLocation(this);
 		self.selectMarker();
