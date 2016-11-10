@@ -253,7 +253,7 @@ var initialLocations = [
 		street: "294 Main St",
 		city: "Madison",
 		state: "NJ",
-		notes: "I spent a lot of time here early into our relationship. Many times, I didn't even go back to my apartment; I just sleep over and we went into work together. We were madly inlove. I told you my feelings when sitting on the blue couch after an episode of Harry's Law. Perfect timing. Eventually we got married and moved here together.",
+		notes: "I spent a lot of time here early into our relationship. Many times, I didn't even go back to my apartment; I just slept over and we went into the office together. We were/are madly inlove. I told you my feelings when sitting on the blue couch after an episode of Harry's Law. Perfect timing. Eventually we got married and moved here together.",
 		image: "apt",
 		lat: 40.750938,
 		lon: -74.4019547
@@ -264,7 +264,7 @@ var initialLocations = [
 		street: "309 Main St",
 		city: "Madison",
 		state: "NJ",
-		notes: "We met here for one of our 'dates' and then walked around outside. I was dressed up because I went to church that morning and I was trying to impress you. We talked about hiking when we were inside. Shortly after we left, you realized you forgot your hat so we went back in to get it.",
+		notes: "We met here for one of our 'dates' and then walked around outside. I was dressed up because I went to church that morning and I was trying to impress you. Obviously it worked. We talked about hiking when we were inside. Shortly after we left, you realized you forgot your hat so we went back in to get it. You're stil absent minded today.",
 		image: "starbucks",
 		lat: 40.7489866,
 		lon: -74.4019008
@@ -286,7 +286,7 @@ var initialLocations = [
 		street: "Crescent Center, 184 Columbia Turnpike #13",
 		city: "Florham Park",
 		state: "NJ",
-		notes: "This was a favorite Chinese food place for lunch during work. We also did take out to eat back in your office during a few late nights in the office.",
+		notes: "This was one of our favorite Chinese food places to have lunch during work. We also did take out to eat back in your office during a few late nights in the office.",
 		image: "chinachalet",
 		lat: 40.78943,
 		lon: -74.393459
@@ -297,7 +297,7 @@ var initialLocations = [
 		street: "185 Ridgedale Ave",
 		city: "Florham Park",
 		state: "NJ",
-		notes: "You're obsessed with KFC and love eating here as often as you can. I didn't like it that much but tolerated it for your sake. You always asked for chicken legs only and we usually got drinks & sides. I was usually depressed after eating here.",
+		notes: "You're obsessed with KFC and love eating here as often as you can. I didn't like it that much but tolerated it for your sake. You always asked for chicken legs only and we usually got drinks & sides. I was typically depressed after eating here.",
 		image: "kfc",
 		lat: 40.7877236,
 		lon: -74.3920268
@@ -341,7 +341,7 @@ var initialLocations = [
 		street: "176 Columbia Turnpike",
 		city: "Florham Park",
 		state: "NJ",
-		notes: "I always mispronounced the name of this place. We had lunch each several times during work when we needed a Mexican fix.",
+		notes: "I always mispronounced the name of this place. We had lunch here several times during work when we needed a Mexican fix.",
 		image: "qdoba",
 		lat: 40.7886387,
 		lon: -74.3879704
@@ -418,7 +418,7 @@ var initialLocations = [
 		street: "300 Main St",
 		city: "Madison",
 		state: "NJ",
-		notes: "We came here for sushi often since it was convenientally close to our apartment. We did take out here one night after doing the 'Cross Walk' at St. Ann in Parispanny.",
+		notes: "We came here for sushi often since it was convenientally close to our apartment. One night, when we were waiting for take out, we discussed your religion and many Gods. It may have been after doing the 'Cross Walk' at St. Ann in Parispanny.",
 		image: "yukihana",
 		lat: 40.749639,
 		lon: -74.398945
@@ -473,7 +473,7 @@ var initialLocations = [
 		street: "301 Main St",
 		city: "Madison",
 		state: "NJ",
-		notes: "We had lunch here very often especially for the warm naan. We came here during work a lot, too!",
+		notes: "We had lunch here often, especially for the warm naan. We came here during work a lot, too!",
 		image: "begum",
 		lat: 40.749956,
 		lon: -74.398605
@@ -528,7 +528,7 @@ var initialLocations = [
 		street: "156 Sr-10 West",
 		city: "East Hanover",
 		state: "NJ",
-		notes: "We came here at least once per week to shop for groceries! You also got new tires from their auto shop. This was my introduction into Costco. I found it very hectic at first and was always confused which side of the checkout counter I was supposed to go. I remember being nervous when you would go shopping while I was waiting on line since I didn't have a Costco membership card at that time.",
+		notes: "We came here at least once per week to shop for groceries! You also got new tires from their auto shop. This was my introduction into Costco. I found it very hectic at first and was confused which side of the checkout counter I was supposed to go. I remember being nervous when you would go shopping while I was waiting on line since I didn't have a Costco membership card at that time.",
 		image: "costco",
 		lat: 40.8127234,
 		lon: -74.3815172,
@@ -539,7 +539,7 @@ var initialLocations = [
 		street: "200 NJ-10",
 		city: "East Hanover",
 		state: "NJ",
-		notes: "We loved the food court here! We came often to eat prepared food that came with yummy soup and rice. When you pregnant with Gabriel, you had an urgent need for rice. I rushed here, dropping my Note in the process and cracking the screen. It was worth it, I think.",
+		notes: "We loved the food court here! We came often to eat prepared food that came with yummy soup and rice. When you where pregnant with Gabriel, you had an urgent need for rice. I rushed here, dropping my Note in the process and cracking the screen. It was worth it, I think.",
 		image: "kamman",
 		lat: 40.8101977,
 		lon: -74.3743106
@@ -583,7 +583,7 @@ var initialLocations = [
 		street: "14 Lincoln Pl",
 		city: "Madison",
 		state: "NJ",
-		notes: "This was our second 'date' (if you will) where we saw the silent black & white movie 'The Artist.' I remember having a strong urge to hug you during the movie but would have been inappropriate. You're fluffy and huggable like Raphael.",
+		notes: "This was our second 'date' (if you will) where we saw the silent black & white movie 'The Artist.' I remember having a strong urge to hug you during the movie but that would have been inappropriate. You're fluffy and huggable like Raphael.",
 		image: "bow",
 		lat: 40.7574163,
 		lon: -74.416834
@@ -638,7 +638,7 @@ var initialLocations = [
 		street: "89 Ridge St",
 		city: "Newark",
 		state: "NJ",
-		notes: "Very early outing we did during work. We wanted to look at the cherry blossoms but, alas, no cherries were blossoming at this time.",
+		notes: "Very early outing we did during work. We wanted to look at the cherry blossoms but, alas, no cherries were blossoming at this time. We went back to your apartment afterwards and cuddled on the couch.",
 		image: "sacredheart",
 		lat: 40.7549078,
 		lon: -74.1806966
@@ -693,7 +693,7 @@ var initialLocations = [
 		street: "860 Mountain Ave",
 		city: "Mountainside",
 		state: "NJ",
-		notes: "This was during your Groupon phase. You got a special deal online at this place, but we learned that the hours were very weird. I think we drove here one evening only to find out it was closed.",
+		notes: "This was during your Groupon phase. You got a special deal online at this place, but we learned that the hours were very weird. I think we drove here one evening in the rain only to find out it was closed.",
 		image: "daimatsu",
 		lat: 40.6665609,
 		lon: -74.3527924
@@ -792,7 +792,7 @@ var initialLocations = [
 		street: "6 N Park Pl #2.",
 		city: "Morristown",
 		state: "NJ",
-		notes: "This was one of the many places we visited to shop for suits for the wedding. You were frustrated because my body is oddly shaped. I was convinced to buy two amazing looking suits from here for a low, low prince. You told me I was wrong.",
+		notes: "This was one of the many places we visited to shop for suits for the wedding. You were frustrated because my body is oddly shaped. I was convinced to buy two amazing looking suits from here for a low, low price. You told me I was wrong.",
 		image: "josabank",
 		lat: 40.7978538,
 		lon: -74.4810927
@@ -892,7 +892,7 @@ var initialLocations = [
 		street: "2 Windsor Terrace",
 		city: "Holmdel",
 		state: "NJ",
-		notes: "We bought this home from Alice Houston. We commuted here often during week nights, after work, to move our stuff over. I remember one particular romantic night (maybe two?) where we watched fireworks as we drove back from our new home to our apartment. The house is OK. We learned that the plumbing has trees growing in it, the toilets run water for no reason and we have mice in the basement but that's OK. Also it's haunted.",
+		notes: "We bought this home from Alice Houston. We commuted here often during week nights, after work, to move our stuff over. I remember one particular romantic night where we watched fireworks as we drove back from our new home to our apartment. The house is OK. We learned that the plumbing has trees growing in it, the toilets run water for no reason and we have mice in the basement but that's OK. Also it's haunted.",
 		image: "2windsorterr",
 		lat: 40.4055193,
 		lon: -74.1730312
@@ -948,7 +948,7 @@ var initialLocations = [
 		street: "466 W Mt Pleasant Ave",
 		city: "Livingston",
 		state: "NJ",
-		notes: "We were looking for a suit that fit my abnormal body for our wedding. I kept calling back to see if they ordered certain suits. They never arrived.",
+		notes: "We were looking for a suit to fit my abnormal body for our wedding. I kept calling back to see if they ordered certain suits. They never arrived.",
 		image: "warehouse",
 		lat: 40.7969928,
 		lon: -74.3469192
@@ -970,7 +970,7 @@ var initialLocations = [
 		street: "37 Maple St",
 		city: "Summit",
 		state: "NJ",
-		notes: "We raced here during work, during our lunch break, to try own suits for the wedding.",
+		notes: "We raced here during work, during our lunch break, to try on suits for the wedding.",
 		image: "summit",
 		lat: 40.7173925,
 		lon: -74.358921
@@ -992,7 +992,7 @@ var initialLocations = [
 		street: "300 Parsippany Rd",
 		city: "Parsippany",
 		state: "NJ",
-		notes: "This was my old apartment that I lived when we met, before moving in together into your apartment. You helped me to clean everything and move my stuff via two Russian gentleman. We had some very nice memories from here. One night, when I was coughing nonstop, we had a conversation via Notepad. Awwww.",
+		notes: "This was my old apartment that I lived in when we met, before moving in together into your apartment. You helped me to clean everything and move my stuff via two Russian gentleman. We had some very nice memories from here. One night, when I was coughing nonstop, we had a conversation via Notepad. Awwww.",
 		image: "parsippany",
 		lat: 40.8567381,
 		lon: -74.4238114
@@ -1036,7 +1036,7 @@ var initialLocations = [
 		street: "180 Park Ave",
 		city: "Florham Park",
 		state: "NJ",
-		notes: "We both worked here and this is where we met for the first time. I initially said 'hi' to you on the staircase ouside of my office window. I then started an actual 'conversation' in the little kitchen area. I spent the majority of time at that point in your office on the 2nd floor and then in your office on the ground floor.",
+		notes: "We both worked here and this is where we met for the first time. I initially said 'hi' to you on the staircase ouside of my office window. I then started an actual 'conversation' in the little kitchen area. I spent the majority of time at that point in your office on the 2nd floor and then in your office on the ground floor. We came here many nights to do things for the wedding, like printing stuff out.",
 		image: "florhampark",
 		lat: 40.7782745,
 		lon: -74.4173462
@@ -1103,7 +1103,7 @@ var initialLocations = [
 		street: "3054 NJ-35",
 		city: "Hazlet",
 		state: "NJ",
-		notes: "I think we went here for lunch sometimes with my parents. We talked about names for Gabriel here.",
+		notes: "I think we went here for lunch sometimes with my parents. We talked about names for Gabriel here while drinking coffee.",
 		image: "fridays",
 		lat: 40.419,
 		lon: -74.1824887
@@ -1159,7 +1159,7 @@ var initialLocations = [
 		street: "429 Crooks Ave",
 		city: "Clifton",
 		state: "NJ",
-		notes: "Met my family for the first time",
+		notes: "Met my family for the first time.",
 		image: "sultan",
 		lat: 40.8903448,
 		lon: -74.1514757
@@ -1215,7 +1215,7 @@ var initialLocations = [
 		street: "Piazza del Colosseo, 1, 00184 Roma",
 		city: "Rome",
 		state: "Italy",
-		notes: "One of our first European Honey moon adventures. It was drizzling a little bit outside. We did audio tours that ended up being useless.",
+		notes: "One of our first European Honey moon adventures. We visited just from the outside at first (it was drizzling a little bit). We ventured in the next day and did an audio tour that ended up being useless.",
 		image: "col",
 		lat: 41.8902102,
 		lon: 12.4900422
