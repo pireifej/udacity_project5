@@ -1434,15 +1434,35 @@ var LocationsMap = function() {
 			* or hover over a pin on a map. They usually contain more information
 			* about a location.
 		*/
+			var round = 4;
 		var contentString = "<div class='pop-up' id='locationDetail'>";
+		     var thatLat = lat.toFixed(round);
+		     var thatLon = lon.toFixed(round);
+	     var width = "100%";
+	     var height = "100%";
 		$.each(initialLocations, function(index, value) {
-				if (name.indexOf(value.street()) > -1) {
+			var thisLat = value.lat().toFixed(round);
+			var thisLon = value.lon().toFixed(round);
+				if (thisLat == thatLat && thisLon == thatLon) {
 					contentString += "<p class='header'>" + value.name() + "</p>" +
 					"<p class='sub-heading'>" + value.address() + "</p>" +
+					"<img class='img-responsive' id='imageGoogle' style='width:" + width + ";height:" + height + "' src='" + value.imageGoogle() + "' >" +
+					  "<img class='img-responsive' id='personalImg' style='width:" + width + ";height:" + height + "' src='" + value.personalImgSrc() + "' >" +
 					value.notes();
 				}
 		});
 		contentString += "</div>";
+/*
+	     contentString = "<div class='pop-up' id='locationDetail'>";
+	     contentString += "<div data-bind='with: currentLocation'>";
+	     contentString += "<p class='header' data-bind='text: name'></p>";
+	     contentString += "<p class='sub-heading' data-bind='text: address'></p>";
+    	    contentString += "<img class='img-responsive' id='imageGoogle' src='' alt='' data-bind='attr{src: imageGoogle}' ><br><br>";
+    	    contentString += "<img class='img-responsive' id='personalImg' src='' alt='' data-bind='attr{src: personalImgSrc}'>";
+		  contentString += "<p class='header' data-bind='text: notes'></p>";
+		contentString += "</div>";
+	contentString += "</div>";
+*/
 
 		var infoWindow = new google.maps.InfoWindow({
 			content: contentString
@@ -1451,7 +1471,7 @@ var LocationsMap = function() {
 		/** kicked off whenever a marker is selected */
 		google.maps.event.addListener(marker, 'click', function() {
 			var round = 4;
-			//infoWindow.open(map, marker);
+			infoWindow.open(map, marker);
 			var markerTitle = this.getTitle();
 			var thisLat = this.position.lat().toFixed(round);
 			var thisLon = this.position.lng().toFixed(round);
